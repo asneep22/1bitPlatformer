@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://7awmf7srqo48"]
+[gd_scene load_steps=23 format=3 uid="uid://oge0bi3mmlcl"]
 
 [ext_resource type="Texture2D" uid="uid://ctcrls0d2i7gp" path="res://Sprites/TileMaps/TileMap.png" id="1_hbtor"]
 [ext_resource type="PackedScene" path="res://Scenes/Subscenes/BlackScreen.tscn" id="2_pnxtv"]
 [ext_resource type="PackedScene" uid="uid://rh051s4jyew8" path="res://Scenes/Subscenes/Player.tscn" id="2_r5koj"]
-[ext_resource type="Script" path="res://Scripts/Extendable/ShakableCamera2D.gd" id="3_qvfw3"]
+[ext_resource type="Script" path="res://Scripts/Extendable/ExtandableCamera.gd" id="2_ugnn6"]
 [ext_resource type="PackedScene" uid="uid://dmqkw4brtjxaf" path="res://Scenes/Subscenes/Restarter.tscn" id="5_dr0sa"]
-[ext_resource type="PackedScene" uid="uid://sa3iut0opdq0" path="res://Scenes/Subscenes/Triggers/DeathTrigger.tscn" id="5_n1ea5"]
 [ext_resource type="Script" path="res://Scripts/Triggers/BodyHandler.gd" id="6_45gg6"]
 [ext_resource type="PackedScene" uid="uid://cfu2j44r4dq3d" path="res://Scenes/Subscenes/Printer.tscn" id="7_3sxwm"]
 [ext_resource type="PackedScene" uid="uid://c7eopwgplx5s8" path="res://Scenes/Subscenes/Triggers/BodyHandlTrigger.tscn" id="8_xlne0"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cfjjvoqnqs3v5" path="res://Sprites/VisualElements.png" id="12_dskla"]
 [ext_resource type="PackedScene" uid="uid://ce14phc5bkgjw" path="res://Scenes/Subscenes/TweenContainers/TweenScaleContainer.tscn" id="13_w5tis"]
 [ext_resource type="PackedScene" uid="uid://chq20nc06lnkt" path="res://Scenes/Subscenes/Particles/BackgroundParticles.tscn" id="16_28bif"]
+[ext_resource type="Script" path="res://Scripts/Triggers/ChangeCameraPositionTrigger.gd" id="17_cwtis"]
 [ext_resource type="PackedScene" uid="uid://cp1yhl5knjd1" path="res://Scenes/Subscenes/Traps/Spike.tscn" id="17_xoxlj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80q1u"]
@@ -110,81 +110,59 @@ position = Vector2(-148, 69)
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_fyk5d")
 format = 2
-layer_0/tile_data = PackedInt32Array(262139, 0, 4, 262140, 65536, 4, 262141, 131072, 4, 262142, 65536, 4, 262143, 196608, 4, 196608, 65536, 4, 196609, 65536, 4, 196610, 131072, 4, 196611, 196608, 4, 196612, 196608, 4, 196613, 131072, 4, 196614, 196608, 4, 196603, 0, 2, 196604, 262144, 0, 131074, 262144, 0, 131079, 262144, 2, 65543, 262144, 2, 7, 131072, 0, 196615, 262144, 4, 6, 0, 0, 65542, 0, 4, 131078, 0, 0, 8, 131072, 0, 9, 262144, 2, -65527, 262144, 2, -131063, 262144, 2, -196599, 262144, 2, -262135, 262144, 2, -65537, 262144, 4, -131068, 0, 0, -1, 131072, 4, -65536, 131072, 4, -65535, 131072, 4, -65534, 131072, 4, -65533, 131072, 4, -65532, 131072, 4, -131067, 262144, 0, -65531, 262144, 4, 131067, 0, 2, 65531, 0, 2, -5, 0, 2, -65541, 0, 2, -131077, 0, 2, -2, 0, 4, -65538, 0, 2, -131074, 0, 0, -131073, 262144, 0, -196613, 0, 0, -196612, 262144, 0, -131076, 262144, 4, -327671, 262144, 0, -327672, 0, 0, -262136, 0, 4, 65545, 262144, 4, 65544, 0, 4)
+layer_0/tile_data = PackedInt32Array(262139, 0, 4, 262140, 65536, 4, 262141, 131072, 4, 262142, 65536, 4, 262143, 196608, 4, 196608, 65536, 4, 196609, 65536, 4, 196610, 131072, 4, 196611, 196608, 4, 196612, 196608, 4, 196613, 131072, 4, 196614, 196608, 4, 196603, 0, 2, 196604, 262144, 0, 131074, 262144, 0, 131079, 262144, 2, 65543, 262144, 2, 7, 131072, 0, 196615, 262144, 4, 6, 0, 0, 65542, 0, 4, 131078, 0, 0, 8, 131072, 0, 9, 262144, 2, -65527, 262144, 2, -131063, 262144, 2, -196599, 262144, 2, -262135, 262144, 2, -65537, 262144, 4, -131068, 0, 0, -1, 131072, 4, -65536, 131072, 4, -65535, 131072, 4, -65534, 131072, 4, -65533, 131072, 4, -65532, 131072, 4, -131067, 262144, 0, -65531, 262144, 4, 131067, 0, 2, 65531, 0, 2, -5, 0, 2, -65541, 0, 2, -131077, 0, 2, -2, 0, 4, -65538, 0, 2, -131074, 0, 0, -131073, 262144, 0, -196613, 0, 0, -196612, 262144, 0, -131076, 262144, 4, -327671, 262144, 0, -327672, 0, 0, -262136, 0, 4, 65545, 262144, 4, 65544, 0, 4, 1310716, 131072, 4, 1310717, 131072, 4, 1310718, 131072, 4, 1310719, 131072, 4, 1245184, 131072, 4, 1245185, 131072, 4, 1245186, 131072, 4, 1245187, 131072, 4, 1245188, 131072, 4, 1245189, 131072, 4, 1245190, 131072, 4, 1179654, 0, 0, 1048569, 131072, 4, 1048568, 0, 4, 983032, 0, 0, 983033, 262144, 0, 1310715, 0, 4, 1245179, 0, 0, 1245180, 262144, 0, 1245191, 262144, 4, 1179655, 262144, 0, 1048570, 131072, 4, 1048571, 131072, 4, 1048572, 262144, 4, 983036, 262144, 0, 983035, 0, 0)
 metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(32.8, -15.2)
+[node name="Level0" type="Marker2D" parent="."]
 scale = Vector2(1, 1)
-zoom = Vector2(0.6, 0.6)
-limit_left = -10000
-limit_top = -10000
-limit_right = 10000
-limit_bottom = 1400
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
-editor_draw_limits = true
-editor_draw_drag_margin = true
-script = ExtResource("3_qvfw3")
 
-[node name="Player" parent="." node_paths=PackedStringArray("__camera") groups=["Character", "Player"] instance=ExtResource("2_r5koj")]
-process_mode = 0
-position = Vector2(-22.8, 38.6)
-__camera = NodePath("../Camera2D")
-__check_floor_tick = 0.02
-__shake_amplitude_per_tick = 3.0
-__shake_frequency_per_tick = 3.0
-__gravity_scale = 25.0
-__speed = 400.0
-__jump_strength = 600.0
-
-[node name="PlayerRespawner" parent="." node_paths=PackedStringArray("__respawn_point", "__respawnable_object") instance=ExtResource("5_dr0sa")]
+[node name="PlayerRespawner" parent="Level0" node_paths=PackedStringArray("__respawn_point", "__respawnable_object") instance=ExtResource("5_dr0sa")]
 __respawn_point = NodePath("RespawnPoint")
-__respawnable_object = NodePath("../Player")
+__respawnable_object = NodePath("../../Player")
 
-[node name="RespawnPoint" type="Marker2D" parent="PlayerRespawner"]
+[node name="RespawnPoint" type="Marker2D" parent="Level0/PlayerRespawner"]
 position = Vector2(-41, 286)
 
-[node name="Triggers" type="Marker2D" parent="."]
+[node name="Triggers" type="Marker2D" parent="Level0"]
 position = Vector2(168, 136.6)
-
-[node name="DeathZoneTrigger" parent="Triggers" instance=ExtResource("5_n1ea5")]
-
-[node name="Room0" type="Marker2D" parent="Triggers"]
-
-[node name="ShowVisualElementsTriggers" type="Marker2D" parent="Triggers/Room0"]
 scale = Vector2(1, 1)
 
-[node name="ArrowShowTrigger" parent="Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+[node name="Room0" type="Marker2D" parent="Level0/Triggers"]
+
+[node name="ShowVisualElementsTriggers" type="Marker2D" parent="Level0/Triggers/Room0"]
+
+[node name="ArrowShowTrigger" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
 position = Vector2(-150, -117.8)
 scale = Vector2(1, 3)
 
-[node name="WarningShowTrigger2" parent="Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
-position = Vector2(-109.6, -181.6)
-scale = Vector2(1, 3)
-
-[node name="ArrowShowTrigger3" parent="Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
-position = Vector2(-164, -181.4)
-scale = Vector2(1, 3)
-
-[node name="ArrowShowTrigger4" parent="Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
-position = Vector2(-229.6, -218)
-scale = Vector2(1, 3)
-
-[node name="ShowKeyboardHintTrigger" type="Area2D" parent="Triggers/Room0/ShowVisualElementsTriggers"]
+[node name="ShowKeyboardHintTrigger" type="Area2D" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers"]
 position = Vector2(-90.4, -99)
 scale = Vector2(1, 1)
 script = ExtResource("6_45gg6")
 __collision_group_name = "Player"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Room0/ShowVisualElementsTriggers/ShowKeyboardHintTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers/ShowKeyboardHintTrigger"]
 position = Vector2(0, -27.1)
 shape = SubResource("RectangleShape2D_g38jj")
 
-[node name="BlackScreen" parent="." instance=ExtResource("2_pnxtv")]
+[node name="WarningShowTrigger2" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(-109.6, -181.6)
+scale = Vector2(1, 3)
+
+[node name="ArrowShowTrigger3" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(-164, -181.4)
+scale = Vector2(1, 3)
+
+[node name="ArrowShowTrigger4" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(-229.6, -218)
+scale = Vector2(1, 3)
+
+[node name="ChangeCameraPositionTriggers" type="Marker2D" parent="Level0/Triggers"]
+
+[node name="BlackScreen" parent="Level0" instance=ExtResource("2_pnxtv")]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Level0"]
 z_index = -10
 offset_left = -757.0
 offset_top = -380.8
@@ -192,13 +170,13 @@ offset_right = 786.0
 offset_bottom = 456.2
 color = Color(0.180392, 0.188235, 0.215686, 1)
 
-[node name="VisualElements" type="Marker2D" parent="."]
+[node name="VisualElements" type="Marker2D" parent="Level0"]
 position = Vector2(11.4, 28.8)
 scale = Vector2(1, 1)
 
-[node name="Room0" type="Marker2D" parent="VisualElements"]
+[node name="Room0" type="Marker2D" parent="Level0/VisualElements"]
 
-[node name="ArrowTweenScaleContainer" parent="VisualElements/Room0" instance=ExtResource("13_w5tis")]
+[node name="ArrowTweenScaleContainer" parent="Level0/VisualElements/Room0" instance=ExtResource("13_w5tis")]
 position = Vector2(24.4, 1.8)
 scale = Vector2(1e-05, 1e-05)
 _end_scale = Vector2(1.2, 1.2)
@@ -206,19 +184,17 @@ _duration = 0.35
 _transitionType = 9
 _easeType = 1
 
-[node name="InfinityTweenScaleContainer" parent="VisualElements/Room0/ArrowTweenScaleContainer" instance=ExtResource("11_t3o1k")]
-scale = Vector2(1, 1)
+[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.7, 0.7)
 
-[node name="Arrow" type="Sprite2D" parent="VisualElements/Room0/ArrowTweenScaleContainer/InfinityTweenScaleContainer"]
+[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(0.399998, 0.200001)
-scale = Vector2(1, 1)
 texture = ExtResource("12_dskla")
 region_enabled = true
 region_rect = Rect2(1, 9, 13, 7)
 
-[node name="ArrowTweenScaleContainer2" parent="VisualElements/Room0" instance=ExtResource("13_w5tis")]
+[node name="ArrowTweenScaleContainer2" parent="Level0/VisualElements/Room0" instance=ExtResource("13_w5tis")]
 position = Vector2(-28.8, -82)
 rotation = 3.14159
 _end_scale = Vector2(1.2, 1.2)
@@ -226,19 +202,17 @@ _duration = 0.35
 _transitionType = 9
 _easeType = 1
 
-[node name="InfinityTweenScaleContainer" parent="VisualElements/Room0/ArrowTweenScaleContainer2" instance=ExtResource("11_t3o1k")]
-scale = Vector2(1, 1)
+[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer2" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.7, 0.7)
 
-[node name="Arrow" type="Sprite2D" parent="VisualElements/Room0/ArrowTweenScaleContainer2/InfinityTweenScaleContainer"]
+[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer2/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(0.399998, 0.200001)
-scale = Vector2(1, 1)
 texture = ExtResource("12_dskla")
 region_enabled = true
 region_rect = Rect2(1, 9, 13, 7)
 
-[node name="ArrowTweenScaleContainer3" parent="VisualElements/Room0" instance=ExtResource("13_w5tis")]
+[node name="ArrowTweenScaleContainer3" parent="Level0/VisualElements/Room0" instance=ExtResource("13_w5tis")]
 position = Vector2(-99.2, -79.4)
 rotation = 1.57079
 _end_scale = Vector2(1.2, 1.2)
@@ -246,41 +220,37 @@ _duration = 0.35
 _transitionType = 9
 _easeType = 1
 
-[node name="InfinityTweenScaleContainer" parent="VisualElements/Room0/ArrowTweenScaleContainer3" instance=ExtResource("11_t3o1k")]
-scale = Vector2(1, 1)
+[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer3" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.7, 0.7)
 
-[node name="Arrow" type="Sprite2D" parent="VisualElements/Room0/ArrowTweenScaleContainer3/InfinityTweenScaleContainer"]
+[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer3/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(0.399998, 0.200001)
-scale = Vector2(1, 1)
 texture = ExtResource("12_dskla")
 region_enabled = true
 region_rect = Rect2(1, 9, 13, 7)
 
-[node name="Warning" parent="VisualElements/Room0" instance=ExtResource("13_w5tis")]
+[node name="Warning" parent="Level0/VisualElements/Room0" instance=ExtResource("13_w5tis")]
 position = Vector2(20.6, -75)
 _end_scale = Vector2(1.2, 1.2)
 _duration = 0.35
 _transitionType = 9
 _easeType = 1
 
-[node name="Warning" parent="VisualElements/Room0/Warning" instance=ExtResource("11_t3o1k")]
-scale = Vector2(1, 1)
+[node name="Warning" parent="Level0/VisualElements/Room0/Warning" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.9, 0.9)
 _end_scale = Vector2(1, 1)
 
-[node name="Warning" type="Sprite2D" parent="VisualElements/Room0/Warning/Warning"]
+[node name="Warning" type="Sprite2D" parent="Level0/VisualElements/Room0/Warning/Warning"]
 z_index = -1
 position = Vector2(0.399998, 2.09999)
-scale = Vector2(1, 1)
 texture = ExtResource("12_dskla")
 region_enabled = true
 region_rect = Rect2(22, 0, 5, 10)
 
-[node name="Hints" type="Marker2D" parent="VisualElements/Room0"]
+[node name="Hints" type="Marker2D" parent="Level0/VisualElements/Room0"]
 
-[node name="HintKeyboardStart" type="Marker2D" parent="VisualElements/Room0/Hints"]
+[node name="HintKeyboardStart" type="Marker2D" parent="Level0/VisualElements/Room0/Hints"]
 position = Vector2(-54.2, -19.2)
 rotation = -0.288511
 scale = Vector2(0.7, 0.7)
@@ -290,75 +260,75 @@ _end_scale = Vector2(0.85, 0.85)
 _transitionType = 1
 _easeType = 2
 
-[node name="KeyboardHintWASD" type="Marker2D" parent="VisualElements/Room0/Hints/HintKeyboardStart"]
+[node name="KeyboardHintWASD" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart"]
 z_index = -1
 position = Vector2(-4.39188, -8.9892)
 
-[node name="KeyboardA" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
+[node name="KeyboardA" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
 position = Vector2(-11.6429, 0)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(0, 15, 11, 11)
 
-[node name="KeyboardS" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
+[node name="KeyboardS" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
 position = Vector2(0.0714226, 0)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(12, 15, 11, 11)
 
-[node name="KeyboardD" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
+[node name="KeyboardD" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
 position = Vector2(11.7857, 0)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(24, 15, 11, 11)
 
-[node name="KeyboardW" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
+[node name="KeyboardW" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
 position = Vector2(0.0714226, -11.7143)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(12, 3, 11, 11)
 
-[node name="KeyboardHintArrow" type="Marker2D" parent="VisualElements/Room0/Hints/HintKeyboardStart"]
+[node name="KeyboardHintArrow" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart"]
 z_index = -1
 position = Vector2(22.2488, 21.4488)
 rotation = 0.00810855
 
-[node name="KeyboardLeftArrow" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
+[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
 position = Vector2(-11.6429, 0)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(0, 51, 11, 11)
 
-[node name="KeyboardDownArrow" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
+[node name="KeyboardDownArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
 position = Vector2(0.0714226, 0)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(12, 51, 11, 11)
 
-[node name="KeyboardRightArrow" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
+[node name="KeyboardRightArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
 position = Vector2(11.7857, 0)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(24, 51, 11, 11)
 
-[node name="KeyboardUpArrow" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
+[node name="KeyboardUpArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
 position = Vector2(0.0714226, -11.7143)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(12, 39, 11, 11)
 
-[node name="KeyboardSpace" type="Marker2D" parent="VisualElements/Room0/Hints/HintKeyboardStart"]
+[node name="KeyboardSpace" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart"]
 z_index = -1
 position = Vector2(-3.39016, 5.9117)
 rotation = -0.00243724
 
-[node name="KeyboardLeftArrow" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardStart/KeyboardSpace"]
+[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardSpace"]
 position = Vector2(0.17256, -0.213726)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(0, 27, 35, 11)
 
-[node name="Label" parent="VisualElements/Room0/Hints/HintKeyboardStart" instance=ExtResource("7_3sxwm")]
+[node name="Label" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart" instance=ExtResource("7_3sxwm")]
 z_index = -1
 offset_left = -32.8956
 offset_top = 11.725
@@ -376,7 +346,7 @@ uppercase = true
 script = null
 metadata/_edit_use_anchors_ = true
 
-[node name="HintKeyboardTwo" type="Marker2D" parent="VisualElements/Room0/Hints"]
+[node name="HintKeyboardTwo" type="Marker2D" parent="Level0/VisualElements/Room0/Hints"]
 position = Vector2(106, -56.5)
 rotation = -0.223134
 scale = Vector2(1e-05, 1e-05)
@@ -386,35 +356,35 @@ _duration = 0.5
 _transitionType = 9
 _easeType = 1
 
-[node name="InfinityTweenScaleContainer" parent="VisualElements/Room0/Hints/HintKeyboardTwo" instance=ExtResource("11_t3o1k")]
+[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo" instance=ExtResource("11_t3o1k")]
 
-[node name="KeyboardHintW" type="Marker2D" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
+[node name="KeyboardHintW" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(-4.39188, -8.9892)
 
-[node name="KeyboardW" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardHintW"]
+[node name="KeyboardW" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardHintW"]
 position = Vector2(-14.7725, -0.880674)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(12, 3, 11, 11)
 
-[node name="KeyboardHintArrow" type="Marker2D" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
+[node name="KeyboardHintArrow" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(22.2488, 21.4488)
 rotation = 0.00810856
 
-[node name="KeyboardUpArrow" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardHintArrow"]
+[node name="KeyboardUpArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardHintArrow"]
 position = Vector2(-28.2045, -31.299)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(12, 39, 11, 11)
 
-[node name="KeyboardSpace" type="Marker2D" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
+[node name="KeyboardSpace" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(-3.39017, 5.91171)
 rotation = -0.00243724
 
-[node name="X2" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardSpace"]
+[node name="X2" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardSpace"]
 position = Vector2(11.5612, 13.8047)
 rotation = -0.0145723
 scale = Vector2(1.33719, 1.33719)
@@ -422,13 +392,13 @@ texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(36, 27, 16.754, 11)
 
-[node name="KeyboardLeftArrow" type="Sprite2D" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardSpace"]
+[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardSpace"]
 position = Vector2(-2.78095, -1.66259)
 texture = ExtResource("9_o0xx5")
 region_enabled = true
 region_rect = Rect2(0, 27, 35, 11)
 
-[node name="Label" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer" instance=ExtResource("7_3sxwm")]
+[node name="Label" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer" instance=ExtResource("7_3sxwm")]
 visible = false
 z_index = -1
 offset_left = -32.8956
@@ -447,7 +417,7 @@ uppercase = true
 script = null
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" parent="VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer" instance=ExtResource("7_3sxwm")]
+[node name="Label2" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer" instance=ExtResource("7_3sxwm")]
 visible = false
 z_index = -1
 offset_left = -19.615
@@ -466,29 +436,68 @@ uppercase = true
 script = null
 metadata/_edit_use_anchors_ = true
 
-[node name="BackgroundParticles" parent="." instance=ExtResource("16_28bif")]
-
-[node name="Traps" type="Marker2D" parent="."]
-
-[node name="Level0" type="Marker2D" parent="Traps"]
-
-[node name="TripleSpikes" type="Marker2D" parent="Traps/Level0"]
-position = Vector2(31.8, -19.6)
+[node name="BackgroundParticles" parent="Level0" instance=ExtResource("16_28bif")]
+position = Vector2(25.2, 43.8)
 scale = Vector2(1, 1)
 
-[node name="Spike" parent="Traps/Level0/TripleSpikes" instance=ExtResource("17_xoxlj")]
+[node name="Traps" type="Marker2D" parent="Level0"]
+scale = Vector2(1, 1)
 
-[node name="Spike2" parent="Traps/Level0/TripleSpikes" instance=ExtResource("17_xoxlj")]
+[node name="Level0" type="Marker2D" parent="Level0/Traps"]
+
+[node name="TripleSpikes" type="Marker2D" parent="Level0/Traps/Level0"]
+position = Vector2(31.8, -19.6)
+
+[node name="Spike" parent="Level0/Traps/Level0/TripleSpikes" instance=ExtResource("17_xoxlj")]
+
+[node name="Spike2" parent="Level0/Traps/Level0/TripleSpikes" instance=ExtResource("17_xoxlj")]
 position = Vector2(-4.76837e-07, -0.900002)
 
-[node name="Spike3" parent="Traps/Level0/TripleSpikes" instance=ExtResource("17_xoxlj")]
+[node name="Spike3" parent="Level0/Traps/Level0/TripleSpikes" instance=ExtResource("17_xoxlj")]
 position = Vector2(8.2, -0.900002)
 
-[connection signal="onDeath" from="Player" to="PlayerRespawner" method="_respawn"]
-[connection signal="__on_entered" from="Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger" to="VisualElements/Room0/ArrowTweenScaleContainer" method="start"]
-[connection signal="__on_entered" from="Triggers/Room0/ShowVisualElementsTriggers/WarningShowTrigger2" to="VisualElements/Room0/Warning" method="start"]
-[connection signal="__on_entered" from="Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger3" to="VisualElements/Room0/ArrowTweenScaleContainer2" method="start"]
-[connection signal="__on_entered" from="Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger4" to="VisualElements/Room0/ArrowTweenScaleContainer3" method="start"]
-[connection signal="__on_entered" from="Triggers/Room0/ShowVisualElementsTriggers/ShowKeyboardHintTrigger" to="VisualElements/Room0/Hints/HintKeyboardTwo" method="start"]
-[connection signal="on_end_fade_off" from="BlackScreen" to="Player" method="unlock"]
-[connection signal="on_start_fade_in" from="BlackScreen" to="Player" method="lock"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(35.2, -15.2)
+scale = Vector2(1, 1)
+zoom = Vector2(0.6, 0.6)
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("2_ugnn6")
+__transitionType = 3
+__easeType = 2
+
+[node name="Player" parent="." node_paths=PackedStringArray("__camera") groups=["Character", "Player"] instance=ExtResource("2_r5koj")]
+process_mode = 0
+position = Vector2(-40.8, 37.6)
+__camera = NodePath("../Camera2D")
+__check_floor_tick = 0.02
+__shake_amplitude_per_tick = 3.0
+__shake_frequency_per_tick = 3.0
+__gravity_scale = 25.0
+__speed = 400.0
+__jump_strength = 600.0
+
+[node name="MoveCameraTigger" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_xlne0")]
+position = Vector2(48, 104.8)
+scale = Vector2(50, 1)
+script = ExtResource("17_cwtis")
+target = NodePath("../CameraPosition")
+
+[node name="CameraPosition" type="Marker2D" parent="."]
+position = Vector2(29.6, 240.6)
+scale = Vector2(50, 1)
+
+[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger" to="Level0/VisualElements/Room0/ArrowTweenScaleContainer" method="start"]
+[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/ShowKeyboardHintTrigger" to="Level0/VisualElements/Room0/Hints/HintKeyboardTwo" method="start"]
+[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/WarningShowTrigger2" to="Level0/VisualElements/Room0/Warning" method="start"]
+[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger3" to="Level0/VisualElements/Room0/ArrowTweenScaleContainer2" method="start"]
+[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger4" to="Level0/VisualElements/Room0/ArrowTweenScaleContainer3" method="start"]
+[connection signal="on_end_fade_off" from="Level0/BlackScreen" to="Player" method="unlock"]
+[connection signal="on_start_fade_in" from="Level0/BlackScreen" to="Player" method="lock"]
+[connection signal="onDeath" from="Player" to="Level0/PlayerRespawner" method="_respawn"]

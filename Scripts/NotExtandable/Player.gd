@@ -12,7 +12,7 @@ enum State {
 var __currentState = State.IDLE;
 
 @onready var __feet_point = $Feet;
-@export var __camera: ShakableCamera2D;
+@export var __camera: ExtandableCamera;
 
 @export_group("Death")
 @export var __shake_duration: float = .35;
@@ -47,6 +47,9 @@ func _physics_process(delta):
 				
 			if Input.is_action_just_pressed("jump"):
 				__currentState = State.JUMP;
+				
+			if !is_on_floor():
+				__currentState = State.FALL;
 		State.RUN:
 			_move(move_direction);
 			rotate_to_movement_direction(move_direction);
@@ -56,6 +59,9 @@ func _physics_process(delta):
 				
 			if Input.is_action_just_pressed("jump"):
 				__currentState = State.JUMP;
+				
+			if !is_on_floor():
+				__currentState = State.FALL;
 		State.JUMP:
 			_jump();
 			__currentState = State.FALL;
