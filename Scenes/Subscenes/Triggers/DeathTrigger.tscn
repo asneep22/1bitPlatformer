@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://sa3iut0opdq0"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/DeathTrigger.gd" id="1_qq8i0"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_knn3v"]
+a = Vector2(-300, 0)
+b = Vector2(300, 0)
+
+[node name="DeathZoneTrigger" type="Area2D"]
+z_index = 1
+position = Vector2(1.52588e-05, 0)
+script = ExtResource("1_qq8i0")
+__collision_group_name = "Character"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-94, 40.8)
+shape = SubResource("SegmentShape2D_knn3v")
+one_way_collision_margin = 0.0

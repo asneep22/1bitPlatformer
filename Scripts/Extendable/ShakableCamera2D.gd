@@ -15,6 +15,5 @@ func shake(duration: float, frequency: float, amplitude: float):
 		var random_y = randf_range(-1, 1) * amplitude * duration;
 		
 		set_offset(Vector2(random_x, random_y));
-		print(duration);
 	
 

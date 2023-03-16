@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ww6tj4835j62"]
+[gd_scene load_steps=5 format=3 uid="uid://ww6tj4835j62"]
 
 [ext_resource type="Texture2D" uid="uid://3itfk6nx4p32" path="res://Sprites/Particles/ParticlesCircle.png" id="1_1wdo5"]
-[ext_resource type="Script" path="res://Scenes/Subscenes/Particles/Particles.gd" id="2_xl7uo"]
 
 [sub_resource type="Curve" id="Curve_p7bi0"]
 _data = [Vector2(0.00729927, 0.0181818), 0.0, 0.0, 0, 0, Vector2(0.10219, 0.645455), 3.73636, 3.73636, 0, 0, Vector2(1, 0.0818182), 0.0, 0.0, 0, 0]
@@ -39,4 +38,3 @@ lifetime = 0.5
 explosiveness = 0.9
 randomness = 1.0
 trail_lifetime = 0.61
-script = ExtResource("2_xl7uo")

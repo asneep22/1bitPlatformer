@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://41i08jdhmy7d"]
+[gd_scene load_steps=20 format=3 uid="uid://rh051s4jyew8"]
 
 [ext_resource type="Texture2D" uid="uid://2n21odl4dxrb" path="res://Sprites/Character.png" id="1_glhgs"]
-[ext_resource type="Script" path="res://Scripts/Objects/Player.gd" id="1_ic4px"]
+[ext_resource type="Script" path="res://Scripts/NotExtandable/Player.gd" id="1_ic4px"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cynbe"]
 radius = 5.0
@@ -126,6 +126,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+process_mode = 4
 script = ExtResource("1_ic4px")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -138,4 +139,4 @@ sprite_frames = SubResource("SpriteFrames_xtkrr")
 animation = &"idle"
 
 [node name="Feet" type="Marker2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 3)

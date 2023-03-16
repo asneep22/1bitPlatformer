@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c54syoeq0n5bf"]
+
+[ext_resource type="Script" path="res://Scripts/Triggers/BodyHandler.gd" id="1_q0kni"]
+[ext_resource type="PackedScene" uid="uid://cfu2j44r4dq3d" path="res://Scenes/Subscenes/Printer.tscn" id="2_jypia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewroi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pnhxt"]
+font_size = 64
+
+[node name="PrintZone1" type="Marker2D"]
+position = Vector2(-189.8, -99)
+
+[node name="PrintZoneTrigger" type="Area2D" parent="."]
+position = Vector2(-1.23978e-05, 0)
+script = ExtResource("1_q0kni")
+__collision_group_name = "Player"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrintZoneTrigger"]
+shape = SubResource("RectangleShape2D_ewroi")
+
+[node name="Printer" parent="." instance=ExtResource("2_jypia")]
+offset_left = -42.2
+offset_top = -33.0
+offset_right = 1462.8
+offset_bottom = 154.0
+scale = Vector2(0.0560859, 0.0560859)
+size_flags_vertical = 1
+text = ""
+label_settings = SubResource("LabelSettings_pnhxt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+__new_text = "Используй клавиши WASD для передвижения"
+__duration = 1.0
+
+[connection signal="__on_entered" from="PrintZoneTrigger" to="Printer" method="print" flags=6]

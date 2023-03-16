@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ui06ylqs0y4q"]
+
+[ext_resource type="Script" path="res://Scripts/Tweens/InfinityTweenScale.gd" id="1_e3y54"]
+
+[node name="InfinityTweenScaleContainer" type="Marker2D"]
+script = ExtResource("1_e3y54")
+__start_scale = Vector2(0.8, 0.8)
+_end_scale = Vector2(0.85, 0.85)
