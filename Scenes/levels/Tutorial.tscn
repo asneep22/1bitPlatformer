@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://oge0bi3mmlcl"]
+[gd_scene load_steps=37 format=3 uid="uid://oge0bi3mmlcl"]
 
 [ext_resource type="Texture2D" uid="uid://ctcrls0d2i7gp" path="res://Sprites/TileMaps/TileMap.png" id="1_hbtor"]
 [ext_resource type="PackedScene" path="res://Scenes/Subscenes/BlackScreen.tscn" id="2_pnxtv"]
-[ext_resource type="PackedScene" uid="uid://rh051s4jyew8" path="res://Scenes/Subscenes/Player.tscn" id="2_r5koj"]
+[ext_resource type="PackedScene" uid="uid://dw3mbf2qcqf5d" path="res://Scenes/Subscenes/Player.tscn" id="2_r5koj"]
 [ext_resource type="Script" path="res://Scripts/Extendable/ExtandableCamera.gd" id="2_ugnn6"]
 [ext_resource type="PackedScene" uid="uid://dmqkw4brtjxaf" path="res://Scenes/Subscenes/Restarter.tscn" id="5_dr0sa"]
 [ext_resource type="Script" path="res://Scripts/Triggers/BodyHandler.gd" id="6_45gg6"]
@@ -10,13 +10,35 @@
 [ext_resource type="PackedScene" uid="uid://c7eopwgplx5s8" path="res://Scenes/Subscenes/Triggers/BodyHandlTrigger.tscn" id="8_xlne0"]
 [ext_resource type="Script" path="res://Scripts/Tweens/TweenScale.gd" id="9_1p6de"]
 [ext_resource type="Script" path="res://Scripts/Tweens/InfinityTweenScale.gd" id="9_dp2jh"]
-[ext_resource type="Texture2D" uid="uid://5nqpkams03hi" path="res://Sprites/Keyboard.png" id="9_o0xx5"]
+[ext_resource type="Texture2D" uid="uid://mowwawqb4ccu" path="res://Sprites/Keyboard.png" id="9_o0xx5"]
 [ext_resource type="PackedScene" uid="uid://ui06ylqs0y4q" path="res://Scenes/Subscenes/TweenContainers/InfinityTweenScaleContainer.tscn" id="11_t3o1k"]
 [ext_resource type="Texture2D" uid="uid://cfjjvoqnqs3v5" path="res://Sprites/VisualElements.png" id="12_dskla"]
 [ext_resource type="PackedScene" uid="uid://ce14phc5bkgjw" path="res://Scenes/Subscenes/TweenContainers/TweenScaleContainer.tscn" id="13_w5tis"]
 [ext_resource type="PackedScene" uid="uid://chq20nc06lnkt" path="res://Scenes/Subscenes/Particles/BackgroundParticles.tscn" id="16_28bif"]
 [ext_resource type="Script" path="res://Scripts/Triggers/ChangeCameraPositionTrigger.gd" id="17_cwtis"]
 [ext_resource type="PackedScene" uid="uid://cp1yhl5knjd1" path="res://Scenes/Subscenes/Traps/Spike.tscn" id="17_xoxlj"]
+[ext_resource type="PackedScene" uid="uid://bv5qwdiaxm36g" path="res://Scenes/Subscenes/VisualElements/DinamicArrow.tscn" id="18_8p4fa"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_d4rq2"]
+tile_data = PackedInt32Array(65536, 0, 4, 1, 262144, 0, 65537, 262144, 4)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_y1sny"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 4, 1, 262144, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_dtsqu"]
+tile_data = PackedInt32Array(0, 0, 4, 1, 262144, 4)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_nnq1g"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 4)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_clv54"]
+tile_data = PackedInt32Array(0, 0, 0, 1, 262144, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_f6kx4"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 4, 1, 262144, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_x2n76"]
+tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80q1u"]
 texture = ExtResource("1_hbtor")
@@ -88,13 +110,32 @@ use_texture_padding = false
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_fyk5d"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_80q1u")
+pattern_0 = SubResource("TileMapPattern_d4rq2")
+pattern_1 = SubResource("TileMapPattern_y1sny")
+pattern_2 = SubResource("TileMapPattern_dtsqu")
+pattern_3 = SubResource("TileMapPattern_nnq1g")
+pattern_4 = SubResource("TileMapPattern_clv54")
+pattern_5 = SubResource("TileMapPattern_f6kx4")
+pattern_6 = SubResource("TileMapPattern_x2n76")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g38jj"]
 size = Vector2(20, 77.4)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bw1g4"]
+load_path = "res://.godot/imported/Keyboard.png-b9040206328057eb2017e69a7062c5e6.ctex"
 
 [sub_resource type="LabelSettings" id="LabelSettings_grfyi"]
 font_size = 168
@@ -104,17 +145,79 @@ font_color = Color(0.921569, 0.898039, 0.807843, 1)
 font_size = 168
 font_color = Color(0.921569, 0.898039, 0.807843, 1)
 
-[node name="Main" type="TileMap"]
+[sub_resource type="LabelSettings" id="LabelSettings_gcl62"]
+font_size = 48
+font_color = Color(0.921569, 0.898039, 0.807843, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264gg"]
+atlas = ExtResource("9_o0xx5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lha1d"]
+atlas = ExtResource("9_o0xx5")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1iq7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_264gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lha1d")
+}],
+"loop": true,
+"name": &"Mouse",
+"speed": 2.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b0vwn"]
+font_size = 148
+font_color = Color(0.921569, 0.898039, 0.807843, 1)
+
+[node name="Tutorial" type="TileMap" groups=["Level"]]
 texture_filter = 1
-position = Vector2(-148, 69)
+position = Vector2(-144, 72)
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_fyk5d")
 format = 2
-layer_0/tile_data = PackedInt32Array(262139, 0, 4, 262140, 65536, 4, 262141, 131072, 4, 262142, 65536, 4, 262143, 196608, 4, 196608, 65536, 4, 196609, 65536, 4, 196610, 131072, 4, 196611, 196608, 4, 196612, 196608, 4, 196613, 131072, 4, 196614, 196608, 4, 196603, 0, 2, 196604, 262144, 0, 131074, 262144, 0, 131079, 262144, 2, 65543, 262144, 2, 7, 131072, 0, 196615, 262144, 4, 6, 0, 0, 65542, 0, 4, 131078, 0, 0, 8, 131072, 0, 9, 262144, 2, -65527, 262144, 2, -131063, 262144, 2, -196599, 262144, 2, -262135, 262144, 2, -65537, 262144, 4, -131068, 0, 0, -1, 131072, 4, -65536, 131072, 4, -65535, 131072, 4, -65534, 131072, 4, -65533, 131072, 4, -65532, 131072, 4, -131067, 262144, 0, -65531, 262144, 4, 131067, 0, 2, 65531, 0, 2, -5, 0, 2, -65541, 0, 2, -131077, 0, 2, -2, 0, 4, -65538, 0, 2, -131074, 0, 0, -131073, 262144, 0, -196613, 0, 0, -196612, 262144, 0, -131076, 262144, 4, -327671, 262144, 0, -327672, 0, 0, -262136, 0, 4, 65545, 262144, 4, 65544, 0, 4, 1310716, 131072, 4, 1310717, 131072, 4, 1310718, 131072, 4, 1310719, 131072, 4, 1245184, 131072, 4, 1245185, 131072, 4, 1245186, 131072, 4, 1245187, 131072, 4, 1245188, 131072, 4, 1245189, 131072, 4, 1245190, 131072, 4, 1179654, 0, 0, 1048569, 131072, 4, 1048568, 0, 4, 983032, 0, 0, 983033, 262144, 0, 1310715, 0, 4, 1245179, 0, 0, 1245180, 262144, 0, 1245191, 262144, 4, 1179655, 262144, 0, 1048570, 131072, 4, 1048571, 131072, 4, 1048572, 262144, 4, 983036, 262144, 0, 983035, 0, 0)
+layer_0/name = "Bound"
+layer_0/tile_data = PackedInt32Array(262140, 65536, 4, 262141, 131072, 4, 262142, 65536, 4, 262143, 196608, 4, 196608, 65536, 4, 196609, 65536, 4, 196610, 131072, 4, 196611, 196608, 4, 196612, 196608, 4, 196613, 131072, 4, 196614, 196608, 4, 196603, 0, 2, 196604, 262144, 0, 131074, 262144, 0, 131079, 262144, 2, 65543, 262144, 2, 7, 131072, 0, 196615, 262144, 4, 6, 0, 0, 65542, 0, 4, 131078, 0, 0, 8, 131072, 0, 9, 262144, 2, -65527, 262144, 2, -131063, 262144, 2, -196599, 262144, 2, -262135, 262144, 2, -65537, 262144, 4, -131068, 0, 0, -1, 131072, 4, -65536, 131072, 4, -65535, 131072, 4, -65534, 131072, 4, -65533, 131072, 4, -65532, 131072, 4, -131067, 262144, 0, -65531, 262144, 4, 131067, 0, 2, 65531, 0, 2, -5, 0, 2, -65541, 0, 2, -131077, 0, 2, -2, 0, 4, -65538, 0, 2, -131074, 0, 0, -131073, 262144, 0, -196613, 0, 0, -196612, 262144, 0, -131076, 262144, 4, -327671, 262144, 0, -327672, 0, 0, -262136, 0, 4, 65545, 262144, 4, 65544, 0, 4, 262139, 0, 4, 1179645, 131072, 4, 1179646, 196608, 4, 1179647, 196608, 4, 1114112, 65536, 4, 1114113, 131072, 4, 1114114, 196608, 4, 1179644, 65536, 4, 1114115, 65536, 4, 720896, 262144, 4, 851968, 262144, 0, 917504, 262144, 4, 786431, 0, 2, 851967, 0, 2, 917503, 0, 2, 983039, 0, 4, 458752, 262144, 2, 524288, 262144, 2, 589824, 262144, 2, 655360, 262144, 1, 786437, 131072, 0, 851973, 262144, 2, 917509, 262144, 2, 983045, 262144, 2, 1048581, 262144, 3, 1114117, 262144, 4, 1114116, 131072, 4, 786438, 65536, 0, 786439, 262144, 0, 851975, 262144, 4, 851974, 0, 4, 1507337, 196608, 4, 1441802, 262144, 0, 1507338, 262144, 4, 1441801, 0, 0, 720891, 131072, 4, 655353, 262144, 0, 720889, 65536, 4, 720890, 131072, 4, 655352, 0, 0, 720892, 262144, 1, 655356, 262144, 0, 655355, 0, 0, 1114105, 65536, 3, 720888, 0, 4, 786428, 262144, 2, 851964, 262144, 2, 917500, 262144, 2, 983036, 262144, 2, 1048572, 262144, 2, 1114108, 262144, 2, 1179643, 0, 4, 1114107, 0, 0, 1835014, 131072, 0, 1835013, 131072, 0, 1835012, 131072, 0, 1835015, 262144, 2, 1769479, 262144, 2, 1572871, 262144, 0, 1638407, 262144, 1, 1703943, 262144, 2, 1507336, 131072, 4, 1572870, 0, 0, 1638406, 0, 4, 1441798, 0, 0, 1507334, 0, 4, 1441799, 262144, 0, 1507335, 65536, 4, 1835004, 65536, 0, 1835003, 65536, 0, 1835002, 65536, 0, 1835001, 65536, 0, 1900540, 0, 1, 1966076, 0, 1, 2031612, 0, 1, 2097148, 0, 1, 2162685, 65536, 4, 2162686, 131072, 4, 2162687, 196608, 4, 2097152, 65536, 4, 2097153, 65536, 4, 2097154, 131072, 4, 2097155, 196608, 4, 2162684, 0, 4, 1900548, 262144, 2, 1966084, 262144, 2, 2031620, 262144, 2, 2097156, 262144, 4, 1900550, 0, 4, 1900551, 262144, 4, 1835011, 0, 0, 1900547, 0, 4, 1835005, 262144, 0, 1900541, 262144, 4)
+layer_1/name = "SlidableWall"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
 metadata/_edit_group_ = true
 
-[node name="Level0" type="Marker2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(35.2, -15.2)
 scale = Vector2(1, 1)
+zoom = Vector2(0.6, 0.6)
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("2_ugnn6")
+__move_duration = 0.5
+__transitionType = 3
+__easeType = 2
+
+[node name="Player" parent="." node_paths=PackedStringArray("__camera") groups=["Character", "Player"] instance=ExtResource("2_r5koj")]
+process_mode = 0
+position = Vector2(-40.8, 43.4)
+scale = Vector2(1, 1)
+__camera = NodePath("../Camera2D")
+__speed = 520.0
+__jump_strength = 1000.0
+
+[node name="Level0" type="Marker2D" parent="."]
 
 [node name="PlayerRespawner" parent="Level0" node_paths=PackedStringArray("__respawn_point", "__respawnable_object") instance=ExtResource("5_dr0sa")]
 __respawn_point = NodePath("RespawnPoint")
@@ -125,132 +228,135 @@ position = Vector2(-41, 286)
 
 [node name="Triggers" type="Marker2D" parent="Level0"]
 position = Vector2(168, 136.6)
+
+[node name="ShowVisualElementsTriggers" type="Marker2D" parent="Level0/Triggers"]
 scale = Vector2(1, 1)
 
-[node name="Room0" type="Marker2D" parent="Level0/Triggers"]
-
-[node name="ShowVisualElementsTriggers" type="Marker2D" parent="Level0/Triggers/Room0"]
-
-[node name="ArrowShowTrigger" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+[node name="ArrowShowTrigger" parent="Level0/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
 position = Vector2(-150, -117.8)
 scale = Vector2(1, 3)
 
-[node name="ShowKeyboardHintTrigger" type="Area2D" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers"]
+[node name="ShowKeyboardHintTrigger" type="Area2D" parent="Level0/Triggers/ShowVisualElementsTriggers"]
 position = Vector2(-90.4, -99)
-scale = Vector2(1, 1)
 script = ExtResource("6_45gg6")
 __collision_group_name = "Player"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers/ShowKeyboardHintTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level0/Triggers/ShowVisualElementsTriggers/ShowKeyboardHintTrigger"]
 position = Vector2(0, -27.1)
 shape = SubResource("RectangleShape2D_g38jj")
 
-[node name="WarningShowTrigger2" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+[node name="WarningShowTrigger2" parent="Level0/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
 position = Vector2(-109.6, -181.6)
 scale = Vector2(1, 3)
 
-[node name="ArrowShowTrigger3" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+[node name="ArrowShowTrigger3" parent="Level0/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
 position = Vector2(-164, -181.4)
 scale = Vector2(1, 3)
 
-[node name="ArrowShowTrigger4" parent="Level0/Triggers/Room0/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+[node name="ArrowShowTrigger4" parent="Level0/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
 position = Vector2(-229.6, -218)
 scale = Vector2(1, 3)
 
-[node name="ChangeCameraPositionTriggers" type="Marker2D" parent="Level0/Triggers"]
+[node name="MoveCameraTigger" parent="Level0/Triggers" node_paths=PackedStringArray("target") instance=ExtResource("8_xlne0")]
+position = Vector2(-317.2, -119)
+scale = Vector2(8, 0.184)
+script = ExtResource("17_cwtis")
+target = NodePath("../../../Level1/CameraPosition")
 
 [node name="BlackScreen" parent="Level0" instance=ExtResource("2_pnxtv")]
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Level0"]
 z_index = -10
-offset_left = -757.0
-offset_top = -380.8
-offset_right = 786.0
-offset_bottom = 456.2
+offset_left = -1757.2
+offset_top = -711.4
+offset_right = -214.2
+offset_bottom = 125.6
+scale = Vector2(2.28, 2.28)
 color = Color(0.180392, 0.188235, 0.215686, 1)
 
 [node name="VisualElements" type="Marker2D" parent="Level0"]
 position = Vector2(11.4, 28.8)
-scale = Vector2(1, 1)
 
-[node name="Room0" type="Marker2D" parent="Level0/VisualElements"]
-
-[node name="ArrowTweenScaleContainer" parent="Level0/VisualElements/Room0" instance=ExtResource("13_w5tis")]
+[node name="ArrowTweenScaleContainer" parent="Level0/VisualElements" instance=ExtResource("13_w5tis")]
 position = Vector2(24.4, 1.8)
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(1, 1)
 _end_scale = Vector2(1.2, 1.2)
 _duration = 0.35
 _transitionType = 9
 _easeType = 1
 
-[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer" instance=ExtResource("11_t3o1k")]
+[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/ArrowTweenScaleContainer" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.7, 0.7)
 
-[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer/InfinityTweenScaleContainer"]
+[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/ArrowTweenScaleContainer/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(0.399998, 0.200001)
 texture = ExtResource("12_dskla")
 region_enabled = true
 region_rect = Rect2(1, 9, 13, 7)
 
-[node name="ArrowTweenScaleContainer2" parent="Level0/VisualElements/Room0" instance=ExtResource("13_w5tis")]
+[node name="ArrowTweenScaleContainer2" parent="Level0/VisualElements" instance=ExtResource("13_w5tis")]
 position = Vector2(-28.8, -82)
 rotation = 3.14159
+scale = Vector2(1, 1)
 _end_scale = Vector2(1.2, 1.2)
 _duration = 0.35
 _transitionType = 9
 _easeType = 1
 
-[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer2" instance=ExtResource("11_t3o1k")]
+[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/ArrowTweenScaleContainer2" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.7, 0.7)
 
-[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer2/InfinityTweenScaleContainer"]
+[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/ArrowTweenScaleContainer2/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(0.399998, 0.200001)
 texture = ExtResource("12_dskla")
 region_enabled = true
 region_rect = Rect2(1, 9, 13, 7)
 
-[node name="ArrowTweenScaleContainer3" parent="Level0/VisualElements/Room0" instance=ExtResource("13_w5tis")]
+[node name="ArrowTweenScaleContainer3" parent="Level0/VisualElements" instance=ExtResource("13_w5tis")]
 position = Vector2(-99.2, -79.4)
 rotation = 1.57079
+scale = Vector2(1, 1)
 _end_scale = Vector2(1.2, 1.2)
 _duration = 0.35
 _transitionType = 9
 _easeType = 1
 
-[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer3" instance=ExtResource("11_t3o1k")]
+[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/ArrowTweenScaleContainer3" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.7, 0.7)
 
-[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/Room0/ArrowTweenScaleContainer3/InfinityTweenScaleContainer"]
+[node name="Arrow" type="Sprite2D" parent="Level0/VisualElements/ArrowTweenScaleContainer3/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(0.399998, 0.200001)
 texture = ExtResource("12_dskla")
 region_enabled = true
 region_rect = Rect2(1, 9, 13, 7)
 
-[node name="Warning" parent="Level0/VisualElements/Room0" instance=ExtResource("13_w5tis")]
+[node name="Warning" parent="Level0/VisualElements" instance=ExtResource("13_w5tis")]
 position = Vector2(20.6, -75)
+scale = Vector2(1, 1)
 _end_scale = Vector2(1.2, 1.2)
 _duration = 0.35
 _transitionType = 9
 _easeType = 1
 
-[node name="Warning" parent="Level0/VisualElements/Room0/Warning" instance=ExtResource("11_t3o1k")]
+[node name="Warning" parent="Level0/VisualElements/Warning" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.9, 0.9)
 _end_scale = Vector2(1, 1)
 
-[node name="Warning" type="Sprite2D" parent="Level0/VisualElements/Room0/Warning/Warning"]
+[node name="Warning" type="Sprite2D" parent="Level0/VisualElements/Warning/Warning"]
 z_index = -1
 position = Vector2(0.399998, 2.09999)
 texture = ExtResource("12_dskla")
 region_enabled = true
 region_rect = Rect2(22, 0, 5, 10)
 
-[node name="Hints" type="Marker2D" parent="Level0/VisualElements/Room0"]
+[node name="Hints" type="Marker2D" parent="Level0/VisualElements"]
+scale = Vector2(1, 1)
 
-[node name="HintKeyboardStart" type="Marker2D" parent="Level0/VisualElements/Room0/Hints"]
+[node name="HintKeyboardStart" type="Marker2D" parent="Level0/VisualElements/Hints"]
 position = Vector2(-54.2, -19.2)
 rotation = -0.288511
 scale = Vector2(0.7, 0.7)
@@ -260,75 +366,75 @@ _end_scale = Vector2(0.85, 0.85)
 _transitionType = 1
 _easeType = 2
 
-[node name="KeyboardHintWASD" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart"]
+[node name="KeyboardHintWASD" type="Marker2D" parent="Level0/VisualElements/Hints/HintKeyboardStart"]
 z_index = -1
 position = Vector2(-4.39188, -8.9892)
 
-[node name="KeyboardA" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
+[node name="KeyboardA" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardHintWASD"]
 position = Vector2(-11.6429, 0)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(0, 15, 11, 11)
 
-[node name="KeyboardS" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
+[node name="KeyboardS" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardHintWASD"]
 position = Vector2(0.0714226, 0)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(12, 15, 11, 11)
 
-[node name="KeyboardD" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
+[node name="KeyboardD" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardHintWASD"]
 position = Vector2(11.7857, 0)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(24, 15, 11, 11)
 
-[node name="KeyboardW" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintWASD"]
+[node name="KeyboardW" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardHintWASD"]
 position = Vector2(0.0714226, -11.7143)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(12, 3, 11, 11)
 
-[node name="KeyboardHintArrow" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart"]
+[node name="KeyboardHintArrow" type="Marker2D" parent="Level0/VisualElements/Hints/HintKeyboardStart"]
 z_index = -1
 position = Vector2(22.2488, 21.4488)
 rotation = 0.00810855
 
-[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
+[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardHintArrow"]
 position = Vector2(-11.6429, 0)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(0, 51, 11, 11)
 
-[node name="KeyboardDownArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
+[node name="KeyboardDownArrow" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardHintArrow"]
 position = Vector2(0.0714226, 0)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(12, 51, 11, 11)
 
-[node name="KeyboardRightArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
+[node name="KeyboardRightArrow" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardHintArrow"]
 position = Vector2(11.7857, 0)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(24, 51, 11, 11)
 
-[node name="KeyboardUpArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardHintArrow"]
+[node name="KeyboardUpArrow" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardHintArrow"]
 position = Vector2(0.0714226, -11.7143)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(12, 39, 11, 11)
 
-[node name="KeyboardSpace" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart"]
+[node name="KeyboardSpace" type="Marker2D" parent="Level0/VisualElements/Hints/HintKeyboardStart"]
 z_index = -1
 position = Vector2(-3.39016, 5.9117)
 rotation = -0.00243724
 
-[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart/KeyboardSpace"]
+[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardStart/KeyboardSpace"]
 position = Vector2(0.17256, -0.213726)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(0, 27, 35, 11)
 
-[node name="Label" parent="Level0/VisualElements/Room0/Hints/HintKeyboardStart" instance=ExtResource("7_3sxwm")]
+[node name="Label" parent="Level0/VisualElements/Hints/HintKeyboardStart" instance=ExtResource("7_3sxwm")]
 z_index = -1
 offset_left = -32.8956
 offset_top = 11.725
@@ -346,59 +452,58 @@ uppercase = true
 script = null
 metadata/_edit_use_anchors_ = true
 
-[node name="HintKeyboardTwo" type="Marker2D" parent="Level0/VisualElements/Room0/Hints"]
+[node name="HintKeyboardTwo" type="Marker2D" parent="Level0/VisualElements/Hints"]
 position = Vector2(106, -56.5)
 rotation = -0.223134
-scale = Vector2(1e-05, 1e-05)
 script = ExtResource("9_1p6de")
 _end_scale = Vector2(1, 1)
 _duration = 0.5
 _transitionType = 9
 _easeType = 1
 
-[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo" instance=ExtResource("11_t3o1k")]
+[node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Hints/HintKeyboardTwo" instance=ExtResource("11_t3o1k")]
 
-[node name="KeyboardHintW" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
+[node name="KeyboardHintW" type="Marker2D" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(-4.39188, -8.9892)
 
-[node name="KeyboardW" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardHintW"]
+[node name="KeyboardW" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardHintW"]
 position = Vector2(-14.7725, -0.880674)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(12, 3, 11, 11)
 
-[node name="KeyboardHintArrow" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
+[node name="KeyboardHintArrow" type="Marker2D" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(22.2488, 21.4488)
 rotation = 0.00810856
 
-[node name="KeyboardUpArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardHintArrow"]
+[node name="KeyboardUpArrow" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardHintArrow"]
 position = Vector2(-28.2045, -31.299)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(12, 39, 11, 11)
 
-[node name="KeyboardSpace" type="Marker2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
+[node name="KeyboardSpace" type="Marker2D" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer"]
 z_index = -1
 position = Vector2(-3.39017, 5.91171)
 rotation = -0.00243724
 
-[node name="X2" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardSpace"]
+[node name="X2" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardSpace"]
 position = Vector2(11.5612, 13.8047)
 rotation = -0.0145723
 scale = Vector2(1.33719, 1.33719)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(36, 27, 16.754, 11)
 
-[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardSpace"]
+[node name="KeyboardLeftArrow" type="Sprite2D" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer/KeyboardSpace"]
 position = Vector2(-2.78095, -1.66259)
-texture = ExtResource("9_o0xx5")
+texture = SubResource("CompressedTexture2D_bw1g4")
 region_enabled = true
 region_rect = Rect2(0, 27, 35, 11)
 
-[node name="Label" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer" instance=ExtResource("7_3sxwm")]
+[node name="Label" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer" instance=ExtResource("7_3sxwm")]
 visible = false
 z_index = -1
 offset_left = -32.8956
@@ -417,7 +522,7 @@ uppercase = true
 script = null
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" parent="Level0/VisualElements/Room0/Hints/HintKeyboardTwo/InfinityTweenScaleContainer" instance=ExtResource("7_3sxwm")]
+[node name="Label2" parent="Level0/VisualElements/Hints/HintKeyboardTwo/InfinityTweenScaleContainer" instance=ExtResource("7_3sxwm")]
 visible = false
 z_index = -1
 offset_left = -19.615
@@ -437,16 +542,13 @@ script = null
 metadata/_edit_use_anchors_ = true
 
 [node name="BackgroundParticles" parent="Level0" instance=ExtResource("16_28bif")]
-position = Vector2(25.2, 43.8)
-scale = Vector2(1, 1)
 
 [node name="Traps" type="Marker2D" parent="Level0"]
-scale = Vector2(1, 1)
 
 [node name="Level0" type="Marker2D" parent="Level0/Traps"]
 
 [node name="TripleSpikes" type="Marker2D" parent="Level0/Traps/Level0"]
-position = Vector2(31.8, -19.6)
+position = Vector2(31.8, -20.4)
 
 [node name="Spike" parent="Level0/Traps/Level0/TripleSpikes" instance=ExtResource("17_xoxlj")]
 
@@ -456,48 +558,416 @@ position = Vector2(-4.76837e-07, -0.900002)
 [node name="Spike3" parent="Level0/Traps/Level0/TripleSpikes" instance=ExtResource("17_xoxlj")]
 position = Vector2(8.2, -0.900002)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(35.2, -15.2)
+[node name="Level1" type="Marker2D" parent="."]
 scale = Vector2(1, 1)
-zoom = Vector2(0.6, 0.6)
-limit_left = -10000
-limit_top = -10000
-limit_right = 10000
-limit_bottom = 10000
-position_smoothing_enabled = true
-position_smoothing_speed = 6.0
-editor_draw_limits = true
-editor_draw_drag_margin = true
-script = ExtResource("2_ugnn6")
-__transitionType = 3
-__easeType = 2
 
-[node name="Player" parent="." node_paths=PackedStringArray("__camera") groups=["Character", "Player"] instance=ExtResource("2_r5koj")]
-process_mode = 0
-position = Vector2(-40.8, 37.6)
-__camera = NodePath("../Camera2D")
-__check_floor_tick = 0.02
-__shake_amplitude_per_tick = 3.0
-__shake_frequency_per_tick = 3.0
-__gravity_scale = 25.0
-__speed = 400.0
-__jump_strength = 600.0
+[node name="Traps" type="Marker2D" parent="Level1"]
 
-[node name="MoveCameraTigger" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_xlne0")]
-position = Vector2(48, 104.8)
+[node name="Spikes" type="Marker2D" parent="Level1/Traps"]
+position = Vector2(-2.19999, 0.599997)
+scale = Vector2(1, 1)
+
+[node name="Spike" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 116.1)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike2" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 124.1)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike3" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 132.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike4" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 140.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike5" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 148.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike6" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 156.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike7" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 164.7)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike8" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 172.7)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike9" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 148.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike10" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 156.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike11" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 164.7)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike12" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 172.7)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike13" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 116.1)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike14" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 124.1)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike15" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 132.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike16" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 140.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike17" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 148.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike18" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 156.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike19" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 164.7)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike20" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 172.7)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike21" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 148.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike22" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 156.4)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike23" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29999, 164.7)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike24" parent="Level1/Traps/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.29998, 172.7)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spikes2" type="Marker2D" parent="Level1/Traps"]
+position = Vector2(-52.2, 242.6)
+rotation = -3.14159
+scale = Vector2(1, 1)
+
+[node name="Spike" parent="Level1/Traps/Spikes2" instance=ExtResource("17_xoxlj")]
+position = Vector2(-1.6001, -25.6)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike2" parent="Level1/Traps/Spikes2" instance=ExtResource("17_xoxlj")]
+position = Vector2(-1.60007, -17.6)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike3" parent="Level1/Traps/Spikes2" instance=ExtResource("17_xoxlj")]
+position = Vector2(-1.60004, -9.89999)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike4" parent="Level1/Traps/Spikes2" instance=ExtResource("17_xoxlj")]
+position = Vector2(-1.60001, -1.90002)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike5" parent="Level1/Traps/Spikes2" instance=ExtResource("17_xoxlj")]
+position = Vector2(-1.59998, 6.09998)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="Spike6" parent="Level1/Traps/Spikes2" instance=ExtResource("17_xoxlj")]
+position = Vector2(-1.59995, 14.0999)
+rotation = -1.57079
+scale = Vector2(1, 1)
+
+[node name="CameraPosition" type="Marker2D" parent="Level1"]
+position = Vector2(29.6, 194.6)
 scale = Vector2(50, 1)
+
+[node name="ViaualEffects" type="Marker2D" parent="Level1"]
+z_index = -1
+
+[node name="Hints" type="Marker2D" parent="Level1/ViaualEffects"]
+
+[node name="JumpNearWallHint" type="Marker2D" parent="Level1/ViaualEffects/Hints"]
+position = Vector2(56.8, 243.6)
+scale = Vector2(1, 1)
+script = ExtResource("9_1p6de")
+_end_scale = Vector2(1, 1)
+_duration = 0.5
+_transitionType = 9
+_easeType = 1
+
+[node name="TweenScaleContainer" type="Marker2D" parent="Level1/ViaualEffects/Hints/JumpNearWallHint"]
+position = Vector2(3.8147e-06, 1.52588e-05)
+script = ExtResource("9_dp2jh")
+__start_scale = Vector2(0.95, 0.95)
+_end_scale = Vector2(1, 1)
+_transitionType = 1
+_easeType = 2
+
+[node name="Label" parent="Level1/ViaualEffects/Hints/JumpNearWallHint/TweenScaleContainer" instance=ExtResource("7_3sxwm")]
+z_index = -1
+offset_left = -25.0
+offset_top = -6.0
+offset_right = 863.0
+offset_bottom = 227.0
+rotation = 0.228189
+scale = Vector2(0.0560859, 0.0560859)
+size_flags_vertical = 1
+text = "(У СТЕНЫ)"
+label_settings = SubResource("LabelSettings_gcl62")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+script = null
+metadata/_edit_use_anchors_ = true
+
+[node name="KeyboardDownArrow" type="Sprite2D" parent="Level1/ViaualEffects/Hints/JumpNearWallHint/TweenScaleContainer"]
+position = Vector2(-6.05953, -3.4254)
+rotation = 0.221657
+texture = SubResource("CompressedTexture2D_bw1g4")
+region_enabled = true
+region_rect = Rect2(12, 3, 11, 11)
+
+[node name="KeyboardDownArrow2" type="Sprite2D" parent="Level1/ViaualEffects/Hints/JumpNearWallHint/TweenScaleContainer"]
+position = Vector2(6.95617, -0.409653)
+rotation = 0.221231
+texture = SubResource("CompressedTexture2D_bw1g4")
+region_enabled = true
+region_rect = Rect2(12, 39, 11, 11)
+
+[node name="AttackHint" type="Marker2D" parent="Level1/ViaualEffects/Hints"]
+position = Vector2(-28.2, 120.6)
+script = ExtResource("9_1p6de")
+_end_scale = Vector2(1, 1)
+_duration = 0.5
+_transitionType = 9
+_easeType = 1
+
+[node name="TweenScaleContainer" type="Marker2D" parent="Level1/ViaualEffects/Hints/AttackHint"]
+position = Vector2(7.62939e-06, 0)
+script = ExtResource("9_dp2jh")
+__start_scale = Vector2(0.95, 0.95)
+_end_scale = Vector2(1, 1)
+_transitionType = 1
+_easeType = 2
+
+[node name="Mouse" type="AnimatedSprite2D" parent="Level1/ViaualEffects/Hints/AttackHint/TweenScaleContainer"]
+texture_filter = 1
+position = Vector2(-16.0157, -7.01572)
+rotation = -0.543496
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_1iq7o")
+animation = &"Mouse"
+autoplay = "Mouse"
+frame_progress = 0.295995
+
+[node name="Label" parent="Level1/ViaualEffects/Hints/AttackHint/TweenScaleContainer" instance=ExtResource("7_3sxwm")]
+z_index = -1
+offset_left = -24.0156
+offset_top = -10.0159
+offset_right = 863.984
+offset_bottom = 222.984
+rotation = 0.130793
+scale = Vector2(0.0560859, 0.0560859)
+size_flags_vertical = 1
+text = "ИЛИ"
+label_settings = SubResource("LabelSettings_b0vwn")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+script = null
+metadata/_edit_use_anchors_ = true
+
+[node name="KeyboardDownArrow" type="Sprite2D" parent="Level1/ViaualEffects/Hints/AttackHint/TweenScaleContainer"]
+position = Vector2(-8.01569, 9.98427)
+rotation = 0.192118
+texture = SubResource("CompressedTexture2D_bw1g4")
+region_enabled = true
+region_rect = Rect2(12, 51, 11, 11)
+
+[node name="KeyboardDownArrow2" type="Sprite2D" parent="Level1/ViaualEffects/Hints/AttackHint/TweenScaleContainer"]
+position = Vector2(4.98429, 11.9843)
+rotation = 0.157793
+texture = SubResource("CompressedTexture2D_bw1g4")
+region_enabled = true
+region_rect = Rect2(12, 15, 11, 11)
+
+[node name="Arrows" type="Marker2D" parent="Level1/ViaualEffects"]
+
+[node name="DinamicArrow" parent="Level1/ViaualEffects/Arrows" instance=ExtResource("18_8p4fa")]
+position = Vector2(-30.2, 187.6)
+rotation = 1.5708
+scale = Vector2(1, 1)
+
+[node name="DinamicArrow2" parent="Level1/ViaualEffects/Arrows" instance=ExtResource("18_8p4fa")]
+position = Vector2(1.80001, 260.6)
+scale = Vector2(1, 1)
+
+[node name="DinamicArrow3" parent="Level1/ViaualEffects/Arrows" instance=ExtResource("18_8p4fa")]
+position = Vector2(71.8, 209.6)
+rotation = -1.5708
+scale = Vector2(1, 1)
+
+[node name="DinamicArrow4" parent="Level1/ViaualEffects/Arrows" instance=ExtResource("18_8p4fa")]
+position = Vector2(135.8, 206.6)
+rotation = -4.71239
+scale = Vector2(1, 1)
+
+[node name="Triggers" type="Marker2D" parent="Level1"]
+
+[node name="ShowVisualElementsTriggers" type="Marker2D" parent="Level1/Triggers"]
+
+[node name="ShowAttackHinntTrigger" parent="Level1/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(-89.2, 151.6)
+scale = Vector2(3, 1)
+
+[node name="ShowShowJumpNeawWallTrigger" parent="Level1/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(50.8, 242.6)
+scale = Vector2(3, 3)
+
+[node name="ShowDinamicArrowTrigger" parent="Level1/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(-70.2, 137.6)
+scale = Vector2(0.1, 2.5)
+
+[node name="ShowDinamicArrowTrigger2" parent="Level1/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(-14.2, 254.6)
+scale = Vector2(0.1, 2.5)
+
+[node name="ShowDinamicArrowTrigger3" parent="Level1/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(65.8, 247.6)
+scale = Vector2(0.1, 2.5)
+
+[node name="ShowDinamicArrowTrigger4" parent="Level1/Triggers/ShowVisualElementsTriggers" instance=ExtResource("8_xlne0")]
+position = Vector2(99.8, 175.6)
+scale = Vector2(0.1, 2.5)
+
+[node name="MoveCameraTigger" parent="Level1/Triggers" node_paths=PackedStringArray("target") instance=ExtResource("8_xlne0")]
+position = Vector2(167.8, 257.6)
+scale = Vector2(8, 0.184)
 script = ExtResource("17_cwtis")
-target = NodePath("../CameraPosition")
+target = NodePath("../../../CameraPosition")
 
 [node name="CameraPosition" type="Marker2D" parent="."]
-position = Vector2(29.6, 240.6)
+position = Vector2(29.6, 416.6)
 scale = Vector2(50, 1)
 
-[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger" to="Level0/VisualElements/Room0/ArrowTweenScaleContainer" method="start"]
-[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/ShowKeyboardHintTrigger" to="Level0/VisualElements/Room0/Hints/HintKeyboardTwo" method="start"]
-[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/WarningShowTrigger2" to="Level0/VisualElements/Room0/Warning" method="start"]
-[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger3" to="Level0/VisualElements/Room0/ArrowTweenScaleContainer2" method="start"]
-[connection signal="_on_entered" from="Level0/Triggers/Room0/ShowVisualElementsTriggers/ArrowShowTrigger4" to="Level0/VisualElements/Room0/ArrowTweenScaleContainer3" method="start"]
+[node name="Level2" type="Marker2D" parent="."]
+
+[node name="Spikes" type="Marker2D" parent="Level2"]
+
+[node name="Spike" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(60.8, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike2" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(52.8, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike3" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(44.8, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike4" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(36.8, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike5" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(28.8, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike6" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(20.6, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike7" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(12.5, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike8" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(4.30001, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike9" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-3.49999, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike10" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-11.7, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike11" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-19.5, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike12" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-27.7, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike13" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-35.5, 506.6)
+scale = Vector2(1, 1)
+
+[node name="Spike14" parent="Level2/Spikes" instance=ExtResource("17_xoxlj")]
+position = Vector2(-43.7, 506.6)
+scale = Vector2(1, 1)
+
+[connection signal="onDeath" from="Player" to="Level0/PlayerRespawner" method="_respawn"]
+[connection signal="_on_entered" from="Level0/Triggers/ShowVisualElementsTriggers/ArrowShowTrigger" to="Level0/VisualElements/ArrowTweenScaleContainer" method="start"]
+[connection signal="_on_entered" from="Level0/Triggers/ShowVisualElementsTriggers/ShowKeyboardHintTrigger" to="Level0/VisualElements/Hints/HintKeyboardTwo" method="start"]
+[connection signal="_on_entered" from="Level0/Triggers/ShowVisualElementsTriggers/WarningShowTrigger2" to="Level0/VisualElements/Warning" method="start"]
+[connection signal="_on_entered" from="Level0/Triggers/ShowVisualElementsTriggers/ArrowShowTrigger3" to="Level0/VisualElements/ArrowTweenScaleContainer2" method="start"]
+[connection signal="_on_entered" from="Level0/Triggers/ShowVisualElementsTriggers/ArrowShowTrigger4" to="Level0/VisualElements/ArrowTweenScaleContainer3" method="start"]
 [connection signal="on_end_fade_off" from="Level0/BlackScreen" to="Player" method="unlock"]
 [connection signal="on_start_fade_in" from="Level0/BlackScreen" to="Player" method="lock"]
-[connection signal="onDeath" from="Player" to="Level0/PlayerRespawner" method="_respawn"]
+[connection signal="_on_entered" from="Level1/Triggers/ShowVisualElementsTriggers/ShowAttackHinntTrigger" to="Level1/ViaualEffects/Hints/AttackHint" method="start"]
+[connection signal="_on_entered" from="Level1/Triggers/ShowVisualElementsTriggers/ShowShowJumpNeawWallTrigger" to="Level1/ViaualEffects/Hints/JumpNearWallHint" method="start"]
+[connection signal="_on_entered" from="Level1/Triggers/ShowVisualElementsTriggers/ShowDinamicArrowTrigger" to="Level1/ViaualEffects/Arrows/DinamicArrow" method="start"]
+[connection signal="_on_entered" from="Level1/Triggers/ShowVisualElementsTriggers/ShowDinamicArrowTrigger2" to="Level1/ViaualEffects/Arrows/DinamicArrow2" method="start"]
+[connection signal="_on_entered" from="Level1/Triggers/ShowVisualElementsTriggers/ShowDinamicArrowTrigger3" to="Level1/ViaualEffects/Arrows/DinamicArrow3" method="start"]
+[connection signal="_on_entered" from="Level1/Triggers/ShowVisualElementsTriggers/ShowDinamicArrowTrigger4" to="Level1/ViaualEffects/Arrows/DinamicArrow4" method="start"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://r57t1ykpckpl"]
+
+[ext_resource type="Script" path="res://Scenes/Subscenes/GhostTrail.gd" id="1_y8lh6"]
+
+[sub_resource type="Gradient" id="Gradient_aif77"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fabng"]
+gradient = SubResource("Gradient_aif77")
+
+[sub_resource type="Curve" id="Curve_6675k"]
+_data = [Vector2(0.0173913, 0.0090909), 0.0, 13.9394, 0, 0, Vector2(0.172107, 0.945454), 0.643357, 0.942657, 0, 0, Vector2(1, 0), 0.69697, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m2rwj"]
+curve = SubResource("Curve_6675k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xlrad"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = -15.0
+angular_velocity_max = 15.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_m2rwj")
+color_ramp = SubResource("GradientTexture1D_fabng")
+turbulence_noise_strength = 20.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ebap1"]
+
+[node name="GhostTrail" type="GPUParticles2D"]
+texture_filter = 1
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_xlrad")
+texture = SubResource("ViewportTexture_ebap1")
+lifetime = 0.3
+one_shot = true
+script = ExtResource("1_y8lh6")
+__sprites_per_second = 20

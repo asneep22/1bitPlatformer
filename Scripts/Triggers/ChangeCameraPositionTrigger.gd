@@ -1,6 +1,6 @@
 extends BodyHandler;
 
-@onready var camera: ExtandableCamera =  get_parent().get_node("Camera2D");
+@onready var camera: ExtandableCamera =  get_tree().get_root().get_camera_2d();
 
 @export var target: Node2D;
 

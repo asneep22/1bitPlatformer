@@ -4,6 +4,5 @@
 
 [node name="TweenScaleContainer" type="Marker2D"]
 position = Vector2(35.8, 30.6)
-scale = Vector2(1, 1)
 script = ExtResource("1_qsh18")
 _transitionType = 6

@@ -1,7 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://rh051s4jyew8"]
+[gd_scene load_steps=31 format=3 uid="uid://dw3mbf2qcqf5d"]
 
 [ext_resource type="Texture2D" uid="uid://2n21odl4dxrb" path="res://Sprites/Character.png" id="1_glhgs"]
 [ext_resource type="Script" path="res://Scripts/NotExtandable/Player.gd" id="1_ic4px"]
+[ext_resource type="PackedScene" uid="uid://r57t1ykpckpl" path="res://Scenes/Subscenes/Particles/GhostTrail.tscn" id="3_w3pob"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/States/IdleState.gd" id="5_cdxoc"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/StateManager.gd" id="5_pwjgi"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/States/RunState.gd" id="6_j55nk"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/States/FallState/FallState.gd" id="7_7xxvy"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/States/JumpState.gd" id="7_gpupk"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/States/DashState.gd" id="9_knd6m"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/States/AttackState.gd" id="10_w0wx4"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/States/WallSlideState.gd" id="11_4yp2e"]
+[ext_resource type="Script" path="res://Scripts/StateMachine/States/WallJumpState.gd" id="12_fpu1c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cynbe"]
 radius = 5.0
@@ -125,9 +135,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ad5oh"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("__state_manager")]
 process_mode = 4
 script = ExtResource("1_ic4px")
+__state_manager = NodePath("StateManager")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cynbe")
@@ -140,3 +153,53 @@ animation = &"idle"
 
 [node name="Feet" type="Marker2D" parent="."]
 position = Vector2(0, 3)
+
+[node name="GhostTrail" parent="." instance=ExtResource("3_w3pob")]
+texture = SubResource("ViewportTexture_ad5oh")
+__sprites_per_second = 10
+__start_modulate = Color(1, 1, 1, 0.254902)
+__fade_off_time = 0.2
+
+[node name="WallCheckerDown" type="RayCast2D" parent="."]
+position = Vector2(0, 5)
+target_position = Vector2(8, 0)
+
+[node name="WallCheckerUp" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(9, 0)
+
+[node name="DistanceToGroundChecker" type="RayCast2D" parent="."]
+position = Vector2(0, 5)
+rotation = 1.57079
+target_position = Vector2(14, 8.78413e-05)
+
+[node name="StateManager" type="Marker2D" parent="."]
+script = ExtResource("5_pwjgi")
+
+[node name="IdleState" type="Marker2D" parent="StateManager"]
+script = ExtResource("5_cdxoc")
+
+[node name="RunState" type="Marker2D" parent="StateManager"]
+script = ExtResource("6_j55nk")
+
+[node name="FallState" type="Marker2D" parent="StateManager"]
+script = ExtResource("7_7xxvy")
+
+[node name="JumpState" type="Marker2D" parent="StateManager"]
+script = ExtResource("7_gpupk")
+
+[node name="DashState" type="Marker2D" parent="StateManager"]
+script = ExtResource("9_knd6m")
+__dash_speed = 1600.0
+__dash_time = 0.25
+
+[node name="AttackState" type="Marker2D" parent="StateManager"]
+script = ExtResource("10_w0wx4")
+__attack_velocity = 5000.0
+__shake_duration = 0.5
+
+[node name="WallSlideState" type="Marker2D" parent="StateManager"]
+script = ExtResource("11_4yp2e")
+
+[node name="WallJumpState" type="Marker2D" parent="StateManager"]
+script = ExtResource("12_fpu1c")

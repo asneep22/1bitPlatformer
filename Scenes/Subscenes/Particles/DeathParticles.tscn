@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn2f6uvfgd6ai"]
+[gd_scene load_steps=7 format=3 uid="uid://dn2f6uvfgd6ai"]
 
 [ext_resource type="Texture2D" uid="uid://3itfk6nx4p32" path="res://Sprites/Particles/ParticlesCircle.png" id="1_0swb2"]
 
+[sub_resource type="Curve" id="Curve_fjjtx"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_wr3n3"]
+curve = SubResource("Curve_fjjtx")
 
 [sub_resource type="Curve" id="Curve_tftog"]
 _data = [Vector2(0.00364964, 0.0181818), 0.0, -1.85039, 0, 0, Vector2(0.0547445, 0.963636), -0.124546, -0.124546, 0, 0, Vector2(1, 0.0090909), -3.73637, 0.0, 0, 0]

@@ -1,14 +1,13 @@
 class_name ExtendedCharacterBody2D;
 extends CharacterBody2D;
 
-@export var __gravity_scale: float = 9.8;
 @export var __speed: float = 5;
 @export var __jump_strength: float = 200;
 @export var __jumps_count: int = 2;
 var __current_jumps_count: int = 2;
 var _is_jump_lock: bool;
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_on_floor():
 		reset_jumps();
 

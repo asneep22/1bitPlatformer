@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckl8m3cb32f0u"]
+
+[ext_resource type="PackedScene" uid="uid://ce14phc5bkgjw" path="res://Scenes/Subscenes/TweenContainers/TweenScaleContainer.tscn" id="1_ope2l"]
+
+[node name="TweenScaleContainer" instance=ExtResource("1_ope2l")]

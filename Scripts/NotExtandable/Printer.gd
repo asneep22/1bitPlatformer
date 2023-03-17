@@ -7,10 +7,10 @@ signal on_end;
 @export_multiline var __new_text: String;
 @export var __duration: float;
 
-func print():
+func print_chars():
 	text = "";
 	
-	for char in __new_text:
+	for one_char in __new_text:
 		await  get_tree().create_timer(__duration / __new_text.length()).timeout;
-		text += char;
+		text += one_char;
 
