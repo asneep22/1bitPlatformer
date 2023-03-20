@@ -1,18 +1,17 @@
-[gd_scene load_steps=45 format=3 uid="uid://ppvdgto1xx0p"]
+[gd_scene load_steps=44 format=3 uid="uid://ppvdgto1xx0p"]
 
 [ext_resource type="Texture2D" uid="uid://ctcrls0d2i7gp" path="res://Sprites/TileMaps/TileMap.png" id="1_hbtor"]
 [ext_resource type="PackedScene" path="res://Scenes/Subscenes/BlackScreen.tscn" id="2_pnxtv"]
 [ext_resource type="PackedScene" uid="uid://vfa1s2lflxti" path="res://Scenes/Subscenes/Player.tscn" id="2_r5koj"]
 [ext_resource type="Script" path="res://Scripts/Extendable/ExtandableCamera.gd" id="2_ugnn6"]
 [ext_resource type="AudioStream" uid="uid://dbtcy12ngipwf" path="res://Audio/Camera/Shake.wav" id="3_e0o0v"]
-[ext_resource type="AudioStream" uid="uid://do7nnvlnobvg" path="res://Audio/Player/Step1.wav" id="4_oyyax"]
+[ext_resource type="AudioStream" uid="uid://uwhsqdyeejh0" path="res://Audio/Player/AttackFall.wav" id="5_15x10"]
 [ext_resource type="Script" path="res://Scripts/Triggers/BodyHandler.gd" id="6_45gg6"]
 [ext_resource type="PackedScene" uid="uid://cfu2j44r4dq3d" path="res://Scenes/Subscenes/Printer.tscn" id="7_3sxwm"]
 [ext_resource type="PackedScene" uid="uid://c7eopwgplx5s8" path="res://Scenes/Subscenes/Triggers/BodyHandlTrigger.tscn" id="8_xlne0"]
 [ext_resource type="Script" path="res://Scripts/Tweens/TweenScale.gd" id="9_1p6de"]
 [ext_resource type="Script" path="res://Scripts/Tweens/InfinityTweenScale.gd" id="9_dp2jh"]
 [ext_resource type="Texture2D" uid="uid://mowwawqb4ccu" path="res://Sprites/Keyboard.png" id="9_o0xx5"]
-[ext_resource type="AudioStream" uid="uid://vflfe1adw84c" path="res://Audio/Player/Jump.wav" id="10_xbhlm"]
 [ext_resource type="PackedScene" uid="uid://ui06ylqs0y4q" path="res://Scenes/Subscenes/TweenContainers/InfinityTweenScaleContainer.tscn" id="11_t3o1k"]
 [ext_resource type="Texture2D" uid="uid://cfjjvoqnqs3v5" path="res://Sprites/VisualElements.png" id="12_dskla"]
 [ext_resource type="PackedScene" uid="uid://ce14phc5bkgjw" path="res://Scenes/Subscenes/TweenContainers/TweenScaleContainer.tscn" id="13_w5tis"]
@@ -192,7 +191,7 @@ size = Vector2(14.8, 90.8)
 
 [node name="Tutorial" type="TileMap" groups=["Level"]]
 texture_filter = 1
-position = Vector2(-144, 72)
+position = Vector2(-114, 276)
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_fyk5d")
 format = 2
@@ -229,9 +228,8 @@ stream = ExtResource("3_e0o0v")
 [node name="Player" parent="." instance=ExtResource("2_r5koj")]
 process_mode = 0
 position = Vector2(-40.8, 40.8)
-__step_sounds = Array[AudioStream]([ExtResource("4_oyyax")])
-__jump_sounds = Array[AudioStream]([ExtResource("10_xbhlm")])
-__speed = 520.0
+__death_sounds = Array[AudioStream]([ExtResource("5_15x10")])
+__speed = 450.0
 __jump_strength = 1000.0
 
 [node name="Level0" type="Marker2D" parent="."]

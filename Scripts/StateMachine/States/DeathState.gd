@@ -11,6 +11,7 @@ func _enter():
 	character_2d.collision_shape.disabled = true;
 	character_2d.set_visible(false);
 	character_2d.set_process(false);
+	character_2d._play_random_death_sound();
 	__extandable_camera.shake(__shake_duration, __shake_frequency, __shake_amplitude);
 	ParticleCreator.CreateOneShot(get_tree().get_root().get_child(0), load("res://Scenes/Subscenes/Particles/DeathParticles.tscn"), character_2d._feet_point.global_position);
 
