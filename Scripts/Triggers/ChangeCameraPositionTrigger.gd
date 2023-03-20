@@ -1,4 +1,4 @@
-extends BodyHandler;
+extends Character2DHandler;
 
 @onready var camera: ExtandableCamera =  get_tree().get_root().get_camera_2d();
 
@@ -6,7 +6,7 @@ extends BodyHandler;
 
 func _ready():
 	super._ready();
-	_on_entered.connect(__start_move);
+	on_entered.connect(__start_move);
 
 func __start_move():
 	camera.move_to(target);

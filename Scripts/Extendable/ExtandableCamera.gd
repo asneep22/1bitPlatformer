@@ -5,11 +5,17 @@ extends Camera2D
 @export var __transitionType: Tween.TransitionType;
 @export var __easeType: Tween.EaseType;
 
+@onready var __audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer;
+
 func _ready():
 	set_process(true)
 
 func shake(duration: float, frequency: float, amplitude: float) -> void:
 	var shake_time:float = duration / frequency;
+	
+	__audio_stream_player.volume_db = duration - (frequency + amplitude);
+	print(__audio_stream_player.volume_db);
+	__audio_stream_player.play();
 	
 	while duration > 0:
 		await  get_tree().create_timer(shake_time).timeout;

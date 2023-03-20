@@ -5,14 +5,16 @@
 
 [node name="Spike" type="Sprite2D"]
 position = Vector2(-8.1, -0.900002)
-scale = Vector2(1, 1)
 texture = ExtResource("1_wrtjp")
 region_enabled = true
 region_rect = Rect2(3, 5, 7, 11)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="SpikeArea2D" type="Area2D" parent="."]
+collision_mask = 2
 script = ExtResource("2_5ue7k")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpikeArea2D"]
 position = Vector2(-0.099999, -5.5)
 polygon = PackedVector2Array(3.8, 11, -3.519, 11, 0, 0.034)
+
+[connection signal="on_character_entered" from="SpikeArea2D" to="SpikeArea2D" method="_kill"]

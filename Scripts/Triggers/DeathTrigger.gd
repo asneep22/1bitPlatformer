@@ -1,7 +1,6 @@
-extends BodyHandler;
+extends Character2DHandler;
 
-func _on_body_entered(other):
-	if(other is Character2D):
-		other._death();
+func _kill(character2D: Character2D):
 	
-	super._on_body_entered(other);
+	character2D._death();
+	print(character2D.name + "was killed by" + name);

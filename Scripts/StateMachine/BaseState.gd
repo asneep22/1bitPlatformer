@@ -11,22 +11,22 @@ enum state {
 	ATTACK,
 	DASH,
 	DEATH,
+	RESPAWN,
 }
 
 var character_2d: Character2D;
 
 func _enter():
 	print(character_2d.name + " entered to " + name);
-	return state.IDLE;
 	
 func _exit():
-	return state.IDLE;
+	pass;
 	
-func _input_key(_event):
-	return state.IDLE;
+func _input_key(_event: InputEvent):
+	pass;
 	
-func _process(_delta):
-	return state.IDLE;
+func _update(_delta):
+	pass;
 	
 func _physics_update(_delta):
-	return state.IDLE;
+	pass;

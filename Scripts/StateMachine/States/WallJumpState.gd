@@ -12,8 +12,9 @@ func _enter():
 	super._enter();
 	
 	character_2d.velocity.y = -__wall_jump_vertical_strength;
-	character_2d.velocity.x = __wall_jump_horizontal_strength * 1 if character_2d._animated_sprite.flip_h else -1;
-	ParticleCreator.CreateOneShot(self, load("res://Scenes/Subscenes/Particles/JumpParticles.tscn"), character_2d.__feet_point.global_position);
+	character_2d.velocity.x = __wall_jump_horizontal_strength * 1 if character_2d._sprite_2d.flip_h else -1;
+	character_2d._play_random_jump_sound();
+	ParticleCreator.CreateOneShot(self, load("res://Scenes/Subscenes/Particles/JumpParticles.tscn"), character_2d._feet_point.global_position);
 	
 func _physics_update(delta):
 	var move_direction: float = Input.get_axis("move_left", "move_right");

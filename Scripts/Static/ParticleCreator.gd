@@ -9,7 +9,6 @@ static func CreateOneShot(parent:Node2D, particle_packed_scene: PackedScene, pos
 	
 	particles_instance.global_position = position;
 	(particles_instance as GPUParticles2D).set_emitting(true);
-	
 	life_timer_incctance.timeout.connect(particles_instance.queue_free);
 	life_timer_incctance.timeout.connect(life_timer_incctance.queue_free);
 	life_timer_incctance.start(particles_instance.lifetime);

@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://bn8w4hnn87o7m"]
+
+[ext_resource type="Script" path="res://Scripts/Extendable/Character2D.gd" id="1_fwbl7"]
+[ext_resource type="PackedScene" uid="uid://sa3iut0opdq0" path="res://Scenes/Subscenes/Triggers/DeathTrigger.tscn" id="2_6giaf"]
+[ext_resource type="Texture2D" uid="uid://chhkg5trbfpqo" path="res://Sprites/Enemies-sheet.png" id="2_pd87x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnb3o"]
+size = Vector2(9, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyu3l"]
+atlas = ExtResource("2_pd87x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_carn4"]
+atlas = ExtResource("2_pd87x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7arw"]
+atlas = ExtResource("2_pd87x")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifm5l"]
+atlas = ExtResource("2_pd87x")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc7lr"]
+atlas = ExtResource("2_pd87x")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m068e"]
+atlas = ExtResource("2_pd87x")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7du5w"]
+atlas = ExtResource("2_pd87x")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b6wh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyu3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_carn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7arw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifm5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc7lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m068e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7du5w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[node name="Character2D" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_fwbl7")
+
+[node name="DeathZoneTrigger" parent="." instance=ExtResource("2_6giaf")]
+process_priority = 100
+position = Vector2(-0.536, 0.238)
+scale = Vector2(0.455, 0.779)
+collision_priority = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_lnb3o")
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_b6wh0")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 5
+frame_progress = 0.719456

@@ -1,44 +1,27 @@
-extends AttackableCharacter2D;
+class_name Player;
+extends Character2D;
 
-@export var __state_manager: StateManager;
-
-enum State {
-	IDLE,
-	RUN,
-	JUMP,
-	WALL_SLIDE,
-	WALL_JUMP,
-	DASH,
-	FALL,
-	ATTACK,
-	DEATH
-}
-
-@onready var __feet_point = $Feet;
-@export var __camera: ExtandableCamera;
-
-@export_group("Death")
-@export var __shake_duration: float = .35;
-@export var __shake_frequency: float = 20;
-@export var __shake_amplitude: float = 30;
+@onready var state_manager: StateManager = $StateManager;
+@onready var attackRay: RayCast2D = $AttackRay;
 
 func _ready():
-	__state_manager.init(self);
-	onDeath.connect(__apply_death_effects);
+	on_death.connect(__death)
+	state_manager.init(self);
 	
 func _physics_process(delta):
 	velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity");
 	move_and_slide();
-	__state_manager._physics_process(delta);
-
-func __apply_death_effects():
-	ParticleCreator.CreateOneShot(get_parent(), load("res://Scenes/Subscenes/Particles/DeathParticles.tscn"), __feet_point.global_position);
-	lock();
-	set_visible(false);
-	__camera.shake(__shake_duration, __shake_frequency, __shake_amplitude);
+	state_manager.physics_update(delta);
 	
-func lock():
-	set_physics_process(false);
+func _process(delta):
+	state_manager.update(delta);
 	
-func unlock():
-	set_physics_process(true);
+func __death():
+	var is_in_death_state: bool = state_manager.current_state == state_manager.states[BaseState.state.DEATH];
+	var is_in_respawn_state: bool = state_manager.current_state == state_manager.states[BaseState.state.RESPAWN];
+	
+	if !is_in_death_state && !is_in_respawn_state:	
+		state_manager.change_state(BaseState.state.DEATH);
+	
+func update_checkpoint_position():
+	(state_manager.states[BaseState.state.RESPAWN] as RespawnState).respawn_point = global_position;

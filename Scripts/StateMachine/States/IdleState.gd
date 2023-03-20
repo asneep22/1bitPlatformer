@@ -1,12 +1,12 @@
 class_name IdleState;
 extends BaseState;
 
-@export_placeholder("animation name") var __animation_name: String = "idle"
+@export_placeholder("animation name") var __animation_name: String = "Idle"
 
 func _enter():
 	super._enter();
 	character_2d.velocity.x = 0;
-	character_2d._animated_sprite.play(__animation_name);
+	character_2d.animation_player.play(__animation_name);
 	character_2d.reset_jumps();
 
 func _physics_update(delta):

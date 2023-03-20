@@ -32,6 +32,7 @@ scale_curve = SubResource("CurveTexture_tox6p")
 color_ramp = SubResource("GradientTexture1D_o65qi")
 
 [node name="BackgroundParticles" type="GPUParticles2D"]
+z_index = -2
 position = Vector2(25.2, 43.8)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_bawrf")

@@ -11,13 +11,12 @@ func _enter():
 	super._enter();
 
 func _physics_update(delta):
-	__ghost_trail.update(delta);
+	__ghost_trail.create_sprite(character_2d._sprite_2d);
 
 	__current_dash_time -= delta;
-	character_2d.velocity.x = __dash_speed * (-1 if character_2d._animated_sprite.flip_h else 1);
+	character_2d.velocity.x = __dash_speed * (-1 if character_2d._sprite_2d.flip_h else 1);
 
 	if (Input.is_action_just_pressed("attack")):
-		(character_2d as AttackableCharacter2D)._attack();
 		return state.ATTACK;
 
 	if __current_dash_time <= 0:

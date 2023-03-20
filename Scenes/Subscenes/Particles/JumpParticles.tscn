@@ -30,11 +30,10 @@ scale_curve = SubResource("CurveTexture_sp7ae")
 
 [node name="JumpParticles" type="GPUParticles2D"]
 texture_filter = 1
-emitting = false
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_8vy1s")
 texture = ExtResource("1_1wdo5")
 lifetime = 0.5
-explosiveness = 0.9
+explosiveness = 1.0
 randomness = 1.0
 trail_lifetime = 0.61

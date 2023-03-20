@@ -2,10 +2,10 @@ class_name WallSlideState;
 extends BaseState;
 
 @export_group("Wall slide")
+@export_placeholder("animation_name") var __wall_slide_animation_name: String = "Idle";
 @export var _max_slide_time: float = 1.5;
 @onready var __wall_checker_head: RayCast2D = $"../../WallCheckerUp";
 @onready var __wall_checker_feet: RayCast2D = $"../../WallCheckerDown";
-@onready var __ground_cheker: RayCast2D = $"../../DistanceToGroundChecker";
 @onready var _current_slide_time: float = _max_slide_time;
 var __is_wall_on_head_level_detect: bool;
 var __is_wall_on_feet_level_detect: bool;
@@ -16,16 +16,16 @@ var __is_can_slide: bool;
 func _enter():
 	super._enter();
 	_current_slide_time = _max_slide_time;
+	character_2d.animation_player.play(__wall_slide_animation_name);
 	__wall_checker_feet.scale *= -1;
 	__wall_checker_head.scale *= -1;
 	
 func _physics_update(delta):
 	__is_wall_on_head_level_detect =  __wall_checker_head.get_collider() != null;
 	__is_wall_on_feet_level_detect = __wall_checker_feet.get_collider() != null;
-	__is_ground_far = __ground_cheker.get_collider() == null;
 	
-	__is_can_slide = __is_wall_on_head_level_detect && __is_wall_on_feet_level_detect && __is_ground_far && _current_slide_time > 0;
-	__is_can_wall_jump = __is_wall_on_head_level_detect && __is_wall_on_feet_level_detect && __is_ground_far;
+	__is_can_slide = __is_wall_on_head_level_detect && __is_wall_on_feet_level_detect && _current_slide_time > 0;
+	__is_can_wall_jump = __is_wall_on_head_level_detect && __is_wall_on_feet_level_detect ;
 	
 	if !__is_can_wall_jump || !__is_can_slide:
 		return state.FALL;
