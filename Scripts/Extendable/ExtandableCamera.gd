@@ -6,6 +6,7 @@ extends Camera2D
 @export var __easeType: Tween.EaseType;
 
 @onready var __audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer;
+@export var _shake_volume_db = -25;
 
 func _ready():
 	set_process(true)
@@ -13,7 +14,7 @@ func _ready():
 func shake(duration: float, frequency: float, amplitude: float) -> void:
 	var shake_time:float = duration / frequency;
 	
-	__audio_stream_player.volume_db = duration - (frequency + amplitude);
+	__audio_stream_player.volume_db = _shake_volume_db;
 	print(__audio_stream_player.volume_db);
 	__audio_stream_player.play();
 	

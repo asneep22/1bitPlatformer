@@ -8,7 +8,7 @@ extends BaseState;
 @export var __shake_amplitude: float = 30;
 
 func _enter():
-	character_2d.collision_shape.disabled = true;
+	character_2d.animation_player.stop();
 	character_2d.set_visible(false);
 	character_2d.set_process(false);
 	character_2d._play_random_death_sound();

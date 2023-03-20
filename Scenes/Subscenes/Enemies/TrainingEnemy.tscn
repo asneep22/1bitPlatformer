@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://chhkg5trbfpqo" path="res://Sprites/Enemies-sheet.png" id="2_pd87x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnb3o"]
-size = Vector2(9, 12)
+size = Vector2(11, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyu3l"]
 atlas = ExtResource("2_pd87x")
@@ -71,11 +71,11 @@ script = ExtResource("1_fwbl7")
 [node name="DeathZoneTrigger" parent="." instance=ExtResource("2_6giaf")]
 process_priority = 100
 position = Vector2(-0.536, 0.238)
-scale = Vector2(0.455, 0.779)
+scale = Vector2(0.596, 0.793)
 collision_priority = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_lnb3o")
 one_way_collision_margin = 0.0
 

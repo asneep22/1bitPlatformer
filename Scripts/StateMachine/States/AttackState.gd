@@ -26,7 +26,8 @@ func _physics_update(delta):
 	if character_2d.is_on_floor():
 		character_2d.velocity.y = -__repusle_strength;
 		character_2d._play_random_attack_sound();
-		return state.IDLE;
+		character_2d.reset_jumps();
+		return state.FALL;
 
 func _exit():
 	ParticleCreator.CreateOneShot(self, load("res://Scenes/Subscenes/Particles/JumpParticles.tscn"), character_2d._feet_point.global_position)
