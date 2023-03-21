@@ -13,3 +13,6 @@ static func PlayOneShot(parent:Node2D, audio_stream:AudioStream, audio_bus: Stri
 	
 	audio_stream_player_2d.queue_free();
 	
+static func PlayOneShotRandom(parent:Node2D, audio_stream:Array[AudioStream], audio_bus: String, position: Vector2):
+	var index:int = randi() % audio_stream.size();
+	PlayOneShot(parent, audio_stream[index], audio_bus, position);

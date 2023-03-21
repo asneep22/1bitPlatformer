@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://vfa1s2lflxti"]
+[gd_scene load_steps=28 format=3 uid="uid://vfa1s2lflxti"]
 
 [ext_resource type="Texture2D" uid="uid://2n21odl4dxrb" path="res://Sprites/Character.png" id="1_glhgs"]
 [ext_resource type="Script" path="res://Scripts/NotExtandable/Player.gd" id="1_ic4px"]
 [ext_resource type="AudioStream" uid="uid://cc5egah22q33k" path="res://Audio/Player/Jump1.wav" id="2_rrq37"]
 [ext_resource type="PackedScene" uid="uid://r57t1ykpckpl" path="res://Scenes/Subscenes/Particles/GhostTrail.tscn" id="3_w3pob"]
+[ext_resource type="AudioStream" uid="uid://88ugt6jwj3l3" path="res://Audio/Player/hurt_007.wav" id="4_dfu06"]
 [ext_resource type="AudioStream" uid="uid://csxhw7dok2pds" path="res://Audio/Player/Death1.wav" id="4_iv8u7"]
 [ext_resource type="Script" path="res://Scripts/StateMachine/States/IdleState.gd" id="5_cdxoc"]
 [ext_resource type="Script" path="res://Scripts/StateMachine/StateManager.gd" id="5_pwjgi"]
@@ -140,7 +141,7 @@ collision_mask = 9
 script = ExtResource("1_ic4px")
 __step_sounds = Array[AudioStream]([ExtResource("15_qc3ya")])
 __jump_sounds = Array[AudioStream]([ExtResource("2_rrq37")])
-__attack_sounds = Array[AudioStream]([ExtResource("4_iv8u7")])
+__attack_sounds = Array[AudioStream]([ExtResource("4_dfu06"), ExtResource("4_iv8u7")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

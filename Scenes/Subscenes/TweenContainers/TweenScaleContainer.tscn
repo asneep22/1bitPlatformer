@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce14phc5bkgjw"]
+[gd_scene load_steps=5 format=3 uid="uid://ce14phc5bkgjw"]
 
 [ext_resource type="Script" path="res://Scripts/Tweens/TweenScale.gd" id="1_qsh18"]
+[ext_resource type="AudioStream" uid="uid://btr0hd6y6giy1" path="res://Audio/menu_001.wav" id="2_xih36"]
+[ext_resource type="AudioStream" uid="uid://du0ijvp2ubguc" path="res://Audio/menu_081.wav" id="3_15d1g"]
+[ext_resource type="AudioStream" uid="uid://dda6qrn70ivhc" path="res://Audio/menu_086.wav" id="4_6qdte"]
 
 [node name="TweenScaleContainer" type="Marker2D"]
 position = Vector2(35.8, 30.6)
 script = ExtResource("1_qsh18")
 _transitionType = 6
+_audio_streams = Array[AudioStream]([ExtResource("2_xih36"), ExtResource("3_15d1g"), ExtResource("4_6qdte")])

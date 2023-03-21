@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://ppvdgto1xx0p"]
+[gd_scene load_steps=48 format=3 uid="uid://ppvdgto1xx0p"]
 
 [ext_resource type="Texture2D" uid="uid://ctcrls0d2i7gp" path="res://Sprites/TileMaps/TileMap.png" id="1_hbtor"]
+[ext_resource type="AudioStream" uid="uid://b2v1pfene8ti0" path="res://Audio/Music/kevin-macleod-8bit-dungeon-boss.mp3" id="2_1xi2r"]
 [ext_resource type="PackedScene" path="res://Scenes/Subscenes/BlackScreen.tscn" id="2_pnxtv"]
 [ext_resource type="PackedScene" uid="uid://vfa1s2lflxti" path="res://Scenes/Subscenes/Player.tscn" id="2_r5koj"]
 [ext_resource type="Script" path="res://Scripts/Extendable/ExtandableCamera.gd" id="2_ugnn6"]
@@ -16,10 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://cfjjvoqnqs3v5" path="res://Sprites/VisualElements.png" id="12_dskla"]
 [ext_resource type="PackedScene" uid="uid://ce14phc5bkgjw" path="res://Scenes/Subscenes/TweenContainers/TweenScaleContainer.tscn" id="13_w5tis"]
 [ext_resource type="PackedScene" uid="uid://chq20nc06lnkt" path="res://Scenes/Subscenes/Particles/BackgroundParticles.tscn" id="16_28bif"]
+[ext_resource type="AudioStream" uid="uid://btr0hd6y6giy1" path="res://Audio/menu_001.wav" id="17_02831"]
 [ext_resource type="Script" path="res://Scripts/Triggers/ChangeCameraPositionTrigger.gd" id="17_cwtis"]
 [ext_resource type="PackedScene" uid="uid://cp1yhl5knjd1" path="res://Scenes/Subscenes/Traps/SpikeArea2D.tscn" id="17_xoxlj"]
 [ext_resource type="PackedScene" uid="uid://bv5qwdiaxm36g" path="res://Scenes/Subscenes/VisualElements/DinamicArrow.tscn" id="18_8p4fa"]
+[ext_resource type="AudioStream" uid="uid://du0ijvp2ubguc" path="res://Audio/menu_081.wav" id="18_ym0n8"]
 [ext_resource type="PackedScene" uid="uid://sa3iut0opdq0" path="res://Scenes/Subscenes/Triggers/DeathTrigger.tscn" id="19_bx235"]
+[ext_resource type="AudioStream" uid="uid://dda6qrn70ivhc" path="res://Audio/menu_086.wav" id="19_dkj74"]
 [ext_resource type="PackedScene" uid="uid://cq4dide8eg8gr" path="res://Scenes/Subscenes/Checkpoint.tscn" id="19_pjkow"]
 [ext_resource type="PackedScene" uid="uid://bn8w4hnn87o7m" path="res://Scenes/Subscenes/Enemies/TrainingEnemy.tscn" id="20_r7yef"]
 
@@ -205,6 +209,11 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 metadata/_edit_group_ = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1xi2r")
+autoplay = true
+bus = &"Music"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(35.2, -15.2)
@@ -474,6 +483,7 @@ _end_scale = Vector2(1, 1)
 _duration = 0.5
 _transitionType = 9
 _easeType = 1
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="InfinityTweenScaleContainer" parent="Level0/VisualElements/Hints/HintKeyboardTwo" instance=ExtResource("11_t3o1k")]
 
@@ -734,6 +744,7 @@ __start_scale = Vector2(0.95, 0.95)
 _end_scale = Vector2(1, 1)
 _transitionType = 1
 _easeType = 2
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="Label" parent="Level1/ViaualEffects/Hints/JumpNearWallHint/TweenScaleContainer" instance=ExtResource("7_3sxwm")]
 z_index = -1
@@ -782,6 +793,7 @@ __start_scale = Vector2(0.95, 0.95)
 _end_scale = Vector2(1, 1)
 _transitionType = 1
 _easeType = 2
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="Mouse" type="AnimatedSprite2D" parent="Level1/ViaualEffects/Hints/AttackHint/TweenScaleContainer"]
 texture_filter = 1
@@ -829,17 +841,21 @@ region_rect = Rect2(12, 15, 11, 11)
 [node name="DinamicArrow" parent="Level1/ViaualEffects/Arrows" instance=ExtResource("18_8p4fa")]
 position = Vector2(-30.2, 187.6)
 rotation = 1.5708
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="DinamicArrow2" parent="Level1/ViaualEffects/Arrows" instance=ExtResource("18_8p4fa")]
 position = Vector2(1.80001, 260.6)
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="DinamicArrow3" parent="Level1/ViaualEffects/Arrows" instance=ExtResource("18_8p4fa")]
 position = Vector2(71.8, 209.6)
 rotation = -1.5708
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="DinamicArrow4" parent="Level1/ViaualEffects/Arrows" instance=ExtResource("18_8p4fa")]
 position = Vector2(135.8, 206.6)
 rotation = -4.71239
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="Triggers" type="Marker2D" parent="Level1"]
 
@@ -1023,6 +1039,7 @@ _end_scale = Vector2(1, 1)
 _duration = 0.5
 _transitionType = 9
 _easeType = 1
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74"), ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="InfinityTweenScaleContainer" parent="Level2/VisualElements/Hints/ShiftTweenScaleContainer" instance=ExtResource("11_t3o1k")]
 __start_scale = Vector2(0.9, 0.9)
@@ -1042,14 +1059,17 @@ position = Vector2(-9.2, 6.2)
 [node name="ArrowTweenScaleContainer" parent="Level2/VisualElements/Arrows" instance=ExtResource("18_8p4fa")]
 position = Vector2(92.8, 368)
 rotation = 1.57079
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="ArrowTweenScaleContainer2" parent="Level2/VisualElements/Arrows" instance=ExtResource("18_8p4fa")]
 position = Vector2(56, 433)
 rotation = 3.92699
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="ArrowTweenScaleContainer3" parent="Level2/VisualElements/Arrows" instance=ExtResource("18_8p4fa")]
 position = Vector2(-25.4, 416.6)
 rotation = 3.14159
+_audio_streams = Array[AudioStream]([ExtResource("17_02831"), ExtResource("18_ym0n8"), ExtResource("19_dkj74")])
 
 [node name="Triggers" type="Marker2D" parent="Level2"]
 

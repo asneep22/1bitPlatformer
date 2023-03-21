@@ -23,5 +23,6 @@ func _on_body_exited(body: Node2D):
 		on_character_exited.emit();
 	
 	print(body.name + "uncollided with" + name)
+	queue_free();
 
 
